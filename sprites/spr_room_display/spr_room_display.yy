@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Procedural Generation",
-    "path":"folders/Procedural Generation.yy",
+    "name":"Core",
+    "path":"folders/Procedural Generation/Core.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

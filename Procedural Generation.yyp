@@ -12,6 +12,7 @@
   "Folders":[
     {"$GMFolder":"","%Name":"Exemple Game","folderPath":"folders/Exemple Game.yy","name":"Exemple Game","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Procedural Generation","folderPath":"folders/Procedural Generation.yy","name":"Procedural Generation","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Core","folderPath":"folders/Procedural Generation/Core.yy","name":"Core","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[],

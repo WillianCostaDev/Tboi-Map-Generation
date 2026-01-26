@@ -41,6 +41,7 @@ first_room.scaley = tile_size_y
 first_room.distx = distx
 first_room.disty = disty
 first_room.tag = "normal"
+first_room.angle = angle
 ds_list_add(rooms,first_room)
 
 //dist
@@ -60,44 +61,44 @@ restart = function(){
 }
 
 //Type of rooms
-default_tag = "normal"
-default_numb_connections = 4
+default_tag = global.default_tag_
+default_numb_connections = global.default_numb_connections_
 
-tags_avaliable_index = 
-[
-"boss",
-"chest",
-"secret"
-]
+tags_avaliable_index = array_create(array_length(global.tags_avaliable_index_),noone) 
 
-rules_per_tag = 
-[
-"last",
-"perpendicular",
-"perpendicular"
-]
+for(var i = 0; i < array_length(global.tags_avaliable_index_);i++){
+	array_push(tags_avaliable_index,global.tags_avaliable_index_[i])
+}
 
-chance_spawn =
-[
-100,
-25,
-25
-]
+rules_per_tag = array_create(array_length(global.rules_per_tag_),noone) 
 
-numb_connections = 
-[
-1,
-1,
-1,
-]
+for(var i = 0; i < array_length(global.rules_per_tag_);i++){
+	array_push(rules_per_tag,global.rules_per_tag_[i])
+}
 
-required_spawn =
-[
-1,
-1,
-1
-]
+chance_spawn = array_create(array_length(global.chance_spawn_),noone) 
 
+for(var i = 0; i < array_length(global.chance_spawn_);i++){
+	array_push(chance_spawn,global.chance_spawn_[i])
+}
+
+numb_connections = array_create(array_length(global.numb_connections_),noone) 
+
+for(var i = 0; i < array_length(global.numb_connections_);i++){
+	array_push(numb_connections,global.numb_connections_[i])
+}
+
+required_spawn = array_create(array_length(global.required_spawn_),noone) 
+
+for(var i = 0; i < array_length(global.required_spawn_);i++){
+	array_push(required_spawn,global.required_spawn_[i])
+}
+debug_color = array_create(array_length(global.debug_color),noone) 
+
+for(var i = 0; i < array_length(global.debug_color);i++){
+	array_push(debug_color,global.debug_color[i])
+}
+/////////////
 for(var i = 0; i < array_length(tags_avaliable_index);i++){
 	ds_list_add(rooms_avaliable,tags_avaliable_index[i])
 }
@@ -154,6 +155,7 @@ for(var k = 0; k < forks; k ++){
 			room_.number = i+1
 			room_.tag = default_tag
 			room_.max_number_of_connections = default_numb_connections
+			room_.angle = angle
 		}else{
 			break;
 		}
@@ -168,6 +170,14 @@ for(var k = 0; k < forks; k ++){
 			
 			if last_case or required_last{
 				room_.tag = tags_avaliable_index[z]
+				room_.scalex = tile_size_x
+				room_.scaley = tile_size_y
+				room_.distx = distx
+				room_.disty = disty
+				room_.number = -i-1
+				room_.max_number_of_connections = numb_connections[z]
+				room_.angle = angle
+				room_.debug_color = debug_color[z]
 				rules_per_tag[z] = "done"
 			}	
 			
@@ -202,6 +212,8 @@ for(var k = 0; k < forks; k ++){
 					room_p.tag = tags_avaliable_index[z]
 					room_p.number = -i-1
 					room_p.max_number_of_connections = numb_connections[z]
+					room_p.angle = angle
+					room_p.debug_color = debug_color[z]
 					ds_list_add(rooms,room_p)
 				}else{
 					break;

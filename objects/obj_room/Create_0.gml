@@ -1,6 +1,9 @@
 tag = noone
 number = 0
 max_number_of_connections = 4
+angle = 0
+
+debug_color = c_white
 
 //local
 offx = 0
