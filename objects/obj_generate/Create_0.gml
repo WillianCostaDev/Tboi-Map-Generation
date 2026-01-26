@@ -164,7 +164,7 @@ for(var k = 0; k < forks; k ++){
 		
 		for(var z = 0; z < ds_list_size(rooms_avaliable); z++){
 			//Last rooms
-			var last_case = rules_per_tag[z] = "last" and i = actual_room_amount -1 and irandom_range(0,100) > 100-chance_spawn[z]
+			var last_case = rules_per_tag[z] = "last" and i = actual_room_amount -1 and irandom_range(0,100) > 100-chance_spawn[z] and room_.tag = default_tag
 			
 			var required_last = rules_per_tag[z] = "last" and i = actual_room_amount-1 and required_spawn[z] = 1
 			
@@ -175,6 +175,24 @@ for(var k = 0; k < forks; k ++){
 				room_.distx = distx
 				room_.disty = disty
 				room_.number = -i-1
+				room_.max_number_of_connections = numb_connections[z]
+				room_.angle = angle
+				room_.debug_color = debug_color[z]
+				rules_per_tag[z] = "done"
+			}	
+			
+			//Inpath rooms
+			var in_path_case = rules_per_tag[z] = "in_path" and irandom_range(0,100) > 100-chance_spawn[z] and room_.tag = default_tag
+			
+			var required_in_path = rules_per_tag[z] = "in_path" and i = actual_room_amount-1 and required_spawn[z] = 1
+			
+			if in_path_case or required_in_path{
+				room_.tag = tags_avaliable_index[z]
+				room_.scalex = tile_size_x
+				room_.scaley = tile_size_y
+				room_.distx = distx
+				room_.disty = disty
+				room_.number = i+1
 				room_.max_number_of_connections = numb_connections[z]
 				room_.angle = angle
 				room_.debug_color = debug_color[z]
