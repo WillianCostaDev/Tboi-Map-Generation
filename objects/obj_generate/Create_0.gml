@@ -5,18 +5,19 @@ if !instance_exists(Ref){
 	return;
 }
 
-hsize = room_width
-wsize = room_height
+hsize = x
+wsize = y
 
-startx = (room_width/2)
-starty = (room_height/2)
+startx = x
+starty = y
 
-tile_size = Ref.tile_size
+tile_size_x = Ref.tile_size_x
+tile_size_y = Ref.tile_size_y
 
-map_sizex = ceil(hsize/tile_size)
-map_sizey = ceil(wsize/tile_size)
+map_sizex = ceil(hsize/tile_size_x)
+map_sizey = ceil(wsize/tile_size_y)
 
-map = mp_grid_create(0,0,map_sizex,map_sizey,tile_size,tile_size)
+//map = mp_grid_create(0,0,map_sizex,map_sizey,tile_size,tile_size)
 
 rooms = ds_list_create()
 
@@ -26,7 +27,8 @@ rooms_avaliable = ds_list_create()
 
 //start room
 first_room = instance_create_depth(startx,starty,depth,obj_room)
-first_room.scale = tile_size
+first_room.scalex = tile_size_x
+first_room.scaley = tile_size_y
 ds_list_add(rooms,first_room)
 
 
@@ -35,7 +37,12 @@ forks = Ref.forks			  //max = 4 or if reset on fail = 0, there is no limit
 angle = Ref.angle
 try_fix_amount = 32
 reset_if_fail = Ref.reset_if_fail
-dist = Ref.dist
+distx = Ref.distx
+disty = Ref.disty
+
+radius_set = tile_size_y
+
+//dist
 
 div_check = 2
 
@@ -110,11 +117,11 @@ for(var k = 0; k < forks; k ++){
 			direc += irandom_range(-1,1)*angle
 		}
 		
-		if(collision_circle(setx+lengthdir_x(dist,direc),sety+lengthdir_y(dist,direc),dist/div_check,obj_room,1,0)){
+		if(collision_circle(setx+lengthdir_x(distx,direc),sety+lengthdir_y(disty,direc),radius_set/div_check,obj_room,1,0)){
 			for(var l = 0; l < try_fix_amount; l++){
 				direc += irandom_range(-1,1)*angle
 					
-				if !(collision_circle(setx+lengthdir_x(dist,direc),sety+lengthdir_y(dist,direc),2,obj_room,1,0)){
+				if !(collision_circle(setx+lengthdir_x(distx,direc),sety+lengthdir_y(disty,direc),2,obj_room,1,0)){
 					break;
 				}else{
 					restart()
@@ -123,16 +130,16 @@ for(var k = 0; k < forks; k ++){
 			}
 		}
 			
-		setx += lengthdir_x(dist,direc)
-		sety += lengthdir_y(dist,direc)
+		setx += lengthdir_x(distx,direc)
+		sety += lengthdir_y(disty,direc)
 		
 		if pause = 0{
 			//Actual room
 			var room_ = instance_create_depth(setx,sety,0,obj_room)
 			ds_list_add(rooms,room_)
-			mp_grid_add_cell(map,setx/8,sety/8)
 			
-			room_.scale = tile_size
+			room_.scalex = tile_size_x
+			room_.scaley = tile_size_y
 			room_.number = i+1
 			room_.tag = default_tag
 		}else{
@@ -165,17 +172,18 @@ for(var k = 0; k < forks; k ++){
 				
 				var ang = choose(90,-90)
 				
-				if(collision_circle(setx+lengthdir_x(dist,direc+ang),sety+lengthdir_y(dist,direc+ang),dist/div_check,obj_room,1,0)){
+				if(collision_circle(setx+lengthdir_x(distx,direc+ang),sety+lengthdir_y(disty,direc+ang),radius_set/div_check,obj_room,1,0)){
 					ang += 180
 					
-					if(collision_circle(setx+lengthdir_x(dist,direc+ang),sety+lengthdir_y(dist,direc+ang),dist/div_check,obj_room,1,0)){
+					if(collision_circle(setx+lengthdir_x(distx,direc+ang),sety+lengthdir_y(disty,direc+ang),radius_set/div_check,obj_room,1,0)){
 						restart()
 					}
 				}
 				
 				if pause = 0{
-					var room_p = instance_create_depth(setx+lengthdir_x(dist,direc+ang),sety+lengthdir_y(dist,direc+ang),0,obj_room)
-					room_p.scale = tile_size
+					var room_p = instance_create_depth(setx+lengthdir_x(distx,direc+ang),sety+lengthdir_y(disty,direc+ang),0,obj_room)
+					room_p.scalex = tile_size_x
+					room_p.scaley = tile_size_y
 					room_p.tag = tags_avaliable_index[z]
 					room_p.number = -i-1
 					ds_list_add(rooms,room_p)
