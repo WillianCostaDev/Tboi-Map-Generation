@@ -6,7 +6,7 @@
   "name":"Generation_handler",
   "parent":{
     "name":"Procedural Generation",
-    "path":"Procedural Generation.yyp",
+    "path":"folders/Procedural Generation.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

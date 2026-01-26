@@ -24,14 +24,6 @@ rooms = ds_list_create()
 rooms_avaliable = ds_list_create()
 
 //generation
-
-//start room
-first_room = instance_create_depth(startx,starty,depth,obj_room)
-first_room.scalex = tile_size_x
-first_room.scaley = tile_size_y
-ds_list_add(rooms,first_room)
-
-
 rooms_amount = Ref.rooms_amount//16
 forks = Ref.forks			  //max = 4 or if reset on fail = 0, there is no limit
 angle = Ref.angle
@@ -41,6 +33,15 @@ distx = Ref.distx
 disty = Ref.disty
 
 radius_set = tile_size_y
+
+//start room
+first_room = instance_create_depth(startx,starty,depth,obj_room)
+first_room.scalex = tile_size_x
+first_room.scaley = tile_size_y
+first_room.distx = distx
+first_room.disty = disty
+first_room.tag = "normal"
+ds_list_add(rooms,first_room)
 
 //dist
 
@@ -60,6 +61,7 @@ restart = function(){
 
 //Type of rooms
 default_tag = "normal"
+default_numb_connections = 4
 
 tags_avaliable_index = 
 [
@@ -80,6 +82,13 @@ chance_spawn =
 100,
 25,
 25
+]
+
+numb_connections = 
+[
+1,
+1,
+1,
 ]
 
 required_spawn =
@@ -140,8 +149,11 @@ for(var k = 0; k < forks; k ++){
 			
 			room_.scalex = tile_size_x
 			room_.scaley = tile_size_y
+			room_.distx = distx
+			room_.disty = disty
 			room_.number = i+1
 			room_.tag = default_tag
+			room_.max_number_of_connections = default_numb_connections
 		}else{
 			break;
 		}
@@ -149,7 +161,7 @@ for(var k = 0; k < forks; k ++){
 		//Type of Room:
 		
 		for(var z = 0; z < ds_list_size(rooms_avaliable); z++){
-			//Last
+			//Last rooms
 			var last_case = rules_per_tag[z] = "last" and i = actual_room_amount -1 and irandom_range(0,100) > 100-chance_spawn[z]
 			
 			var required_last = rules_per_tag[z] = "last" and i = actual_room_amount-1 and required_spawn[z] = 1
@@ -160,7 +172,7 @@ for(var k = 0; k < forks; k ++){
 			}	
 			
 			
-			//perpendicular
+			//perpendicular rooms
 			var perpendicular_case = rules_per_tag[z] = "perpendicular" and irandom_range(0,100) > 100-chance_spawn[z] and i != actual_room_amount-1
 			
 			var perpendicular_case_fix = i = actual_room_amount-2 and k = forks-1
@@ -181,21 +193,24 @@ for(var k = 0; k < forks; k ++){
 				}
 				
 				if pause = 0{
+					//generate other rooms
 					var room_p = instance_create_depth(setx+lengthdir_x(distx,direc+ang),sety+lengthdir_y(disty,direc+ang),0,obj_room)
 					room_p.scalex = tile_size_x
 					room_p.scaley = tile_size_y
+					room_p.distx = distx
+					room_p.disty = disty
 					room_p.tag = tags_avaliable_index[z]
 					room_p.number = -i-1
+					room_p.max_number_of_connections = numb_connections[z]
 					ds_list_add(rooms,room_p)
 				}else{
 					break;
 				}
 			}
 		}
-		
+
 		
 		//////end
 	}
 }
-
 

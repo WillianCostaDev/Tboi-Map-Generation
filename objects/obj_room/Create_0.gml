@@ -1,10 +1,19 @@
 tag = noone
 number = 0
+max_number_of_connections = 4
+
+//local
 offx = 0
 offy = 0
-
 scalex = 1
 scaley = 1
+distx = 0
+disty = 0
 
+connections = ds_list_create()
+
+execute = 1
 
 image_alpha = 0.2
+
+//show_debug_overlay(1,0,1,1,1)
