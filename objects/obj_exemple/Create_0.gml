@@ -4,10 +4,12 @@ randomize()
 
 var size = 16
 
-Init_WolrdGen(1)
+Init_WolrdGen(0)
 
-//Add_Room_To_Gen("shop","perpendicular",45,4,0,c_lime)
-Add_Room_To_Gen("shop","in_path",20,4,0,c_lime)
+Add_Room_To_Gen("boss",last,100,4,1,c_red)
+Add_Room_To_Gen("chest",perpendicular,25,4,1,c_yellow)
+Add_Room_To_Gen("secret",perpendicular,25,4,1,c_purple)
+Add_Room_To_Gen("shop",perpendicular,25,4,1,c_lime)
 
 Start_WolrdGen(room_width/2,room_height/2,8,16,16,16,16,90,2,1)
 

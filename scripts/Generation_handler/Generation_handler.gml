@@ -1,3 +1,7 @@
+#macro perpendicular ("perpendicular")
+#macro in_path ("in_path")
+#macro last ("last")
+
 function Init_WolrdGen(Default_Config = 1){
 	if Default_Config{
 		//Type of rooms
@@ -34,7 +38,7 @@ function Init_WolrdGen(Default_Config = 1){
 	}
 }
 
-function Add_Room_To_Gen(Room_name = "new",Spawn_Rule = "perpendicular",Spawn_chance = 100,max_number_of_connections = 4,Is_required_to_Spawn = 1,Debug_color = c_grey){
+function Add_Room_To_Gen(Room_name = "new",Spawn_Rule = "perpendicular",Spawn_chance = 100,max_number_of_connections = 4,Is_required_to_Spawn = 1,Debug_color = make_colour_rgb(random(255),random(255),random(255))){
 	array_push(global.tags_avaliable_index_ ,Room_name)
 	array_push(global.rules_per_tag_ ,Spawn_Rule)
 	array_push(global.chance_spawn_ ,Spawn_chance)

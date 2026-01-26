@@ -215,7 +215,7 @@ for(var k = 0; k < forks; k ++){
 				if(collision_circle(setx+lengthdir_x(distx,direc+ang),sety+lengthdir_y(disty,direc+ang),radius_set/div_check,obj_room,1,0)){
 					ang += 180
 					
-					if(collision_circle(setx+lengthdir_x(distx,direc+ang),sety+lengthdir_y(disty,direc+ang),radius_set/div_check,obj_room,1,0)){
+					if(collision_circle(setx+lengthdir_x(distx,direc+ang),sety+lengthdir_y(disty,direc+ang),radius_set/div_check,obj_room,1,0)) and required_perpendicular{
 						restart()
 					}
 				}
