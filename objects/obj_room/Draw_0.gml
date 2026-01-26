@@ -1,4 +1,4 @@
-draw_sprite_ext(sprite_index,image_index,x+offx,y+offy,image_xscale,image_yscale,image_angle,image_blend,image_alpha)
+draw_sprite_ext(sprite_index,image_index,x+offx,y+offy,scale/2,scale/2,image_angle,image_blend,image_alpha)
 
 
 if tag = "normal"{
@@ -14,4 +14,6 @@ if tag = "secret"{
 	image_blend = c_purple
 }
 
-draw_rectangle(x-4+offx,y-4+offy,x+4+offx,y+4+offy,1)
+var scale_render = scale/2
+
+draw_rectangle(x-scale_render+offx,y-scale_render+offy,x+scale_render+offx,y+scale_render+offy,1)
