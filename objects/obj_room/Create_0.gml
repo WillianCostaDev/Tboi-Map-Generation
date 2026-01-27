@@ -3,6 +3,8 @@ number = 0
 max_number_of_connections = 4
 angle = 0
 
+def_max_number_of_connections = 4
+
 debug_color = c_white
 
 //local
@@ -14,6 +16,7 @@ distx = 0
 disty = 0
 
 connections = ds_list_create()
+connected_to_me = ds_list_create()
 
 execute = 1
 

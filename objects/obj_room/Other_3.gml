@@ -1,0 +1,2 @@
+ds_list_destroy(connections)
+ds_list_destroy(connected_to_me)
