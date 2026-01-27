@@ -2,7 +2,7 @@
 #macro in_path ("in_path")
 #macro last ("last")
 
-function Init_WolrdGen(Default_Tag = "normal",Default_Number_of_Connections = 4,Default_Config = 1){
+function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,Default_Tag = "normal",Default_Number_of_Connections = 4,Default_Config = 1){
 	if Default_Config{
 		//Type of rooms
 		global.default_tag_  = Default_Tag
@@ -65,4 +65,12 @@ function Start_WolrdGen(Xstart = 0,Ystart = 0,Rooms_Amount = 8,Room_Width = 8,Ro
 	var Wolrd_Gen = instance_create_depth(Xstart,Ystart,0,obj_generate)
 	
 	Wolrd_Gen.Ref = Wolrd_Gen_ref
+}
+
+function Place_object(sprite_ref,index,color,object){
+	var placer = instance_create_depth(0,0,depth,obj_placer)
+	placer.sprite_index = sprite_ref
+	placer.image_index = index
+	placer.color = color
+	placer.object = object
 }

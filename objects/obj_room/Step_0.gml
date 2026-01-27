@@ -23,9 +23,14 @@ if execute = 1{
 			var compatible = number_valid and place2.max_number_of_connections > 0
 				
 			if compatible{
-			
-				ds_list_add(place2.connected_to_me,self)
-				ds_list_add(connections,place2)
+				
+				if ds_exists(place2.connected_to_me,ds_type_list){
+					ds_list_add(place2.connected_to_me,self)
+				}
+				
+				if ds_exists(connections,ds_type_list){
+					ds_list_add(connections,place2)
+				}
 				max_number_of_connections -= 1
 				place2.max_number_of_connections -= 1
 			
