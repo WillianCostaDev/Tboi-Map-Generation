@@ -13,4 +13,4 @@ Add_Room_To_Gen("shop",perpendicular,25,4,1,c_lime)
 
 Start_WolrdGen(room_width/2,room_height/2,8,size,size,size,size,90,2,1)
 
-global.debug = -1
+global.debug_generation = -1

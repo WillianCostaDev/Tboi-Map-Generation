@@ -2,11 +2,11 @@
 #macro in_path ("in_path")
 #macro last ("last")
 
-function Init_WolrdGen(Default_Config = 1){
+function Init_WolrdGen(Default_Tag = "normal",Default_Number_of_Connections = 4,Default_Config = 1){
 	if Default_Config{
 		//Type of rooms
-		global.default_tag_  = "normal"
-		global.default_numb_connections_  = 4
+		global.default_tag_  = Default_Tag
+		global.default_numb_connections_  = Default_Number_of_Connections
 
 		global.tags_avaliable_index_  = ["boss","chest","secret"]
 
@@ -18,11 +18,11 @@ function Init_WolrdGen(Default_Config = 1){
 
 		global.required_spawn_  =[1,1,1]
 		
-		global.debug_color = [c_red,c_yellow,c_purple]
+		global.debug_generation_color = [c_red,c_yellow,c_purple]
 	}else{
 		//Type of rooms
-		global.default_tag_  = "normal"
-		global.default_numb_connections_  = 4
+		global.default_tag_  = Default_Tag
+		global.default_numb_connections_  = Default_Number_of_Connections
 
 		global.tags_avaliable_index_  = []
 
@@ -34,7 +34,7 @@ function Init_WolrdGen(Default_Config = 1){
 
 		global.required_spawn_  =[]
 		
-		global.debug_color = []
+		global.debug_generation_color = []
 	}
 }
 
@@ -44,7 +44,7 @@ function Add_Room_To_Gen(Room_name = "new",Spawn_Rule = "perpendicular",Spawn_ch
 	array_push(global.chance_spawn_ ,Spawn_chance)
 	array_push(global.numb_connections_ ,max_number_of_connections)
 	array_push(global.required_spawn_ ,Is_required_to_Spawn)
-	array_push(global.debug_color ,Debug_color)
+	array_push(global.debug_generation_color ,Debug_color)
 }
 
 

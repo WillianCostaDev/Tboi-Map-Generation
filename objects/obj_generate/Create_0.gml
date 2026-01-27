@@ -93,10 +93,10 @@ required_spawn = array_create(array_length(global.required_spawn_),noone)
 for(var i = 0; i < array_length(global.required_spawn_);i++){
 	array_push(required_spawn,global.required_spawn_[i])
 }
-debug_color = array_create(array_length(global.debug_color),noone) 
+debug_color = array_create(array_length(global.debug_generation_color),noone) 
 
-for(var i = 0; i < array_length(global.debug_color);i++){
-	array_push(debug_color,global.debug_color[i])
+for(var i = 0; i < array_length(global.debug_generation_color);i++){
+	array_push(debug_color,global.debug_generation_color[i])
 }
 /////////////
 for(var i = 0; i < array_length(tags_avaliable_index);i++){
@@ -182,7 +182,7 @@ for(var k = 0; k < forks; k ++){
 				room_.debug_color = debug_color[z]
 				rules_per_tag[z] = "done"
 			}else if last_group{
-				if k = forks {
+				if k = forks-1 {
 					if required_spawn[z] = 1{
 						restart()
 					}

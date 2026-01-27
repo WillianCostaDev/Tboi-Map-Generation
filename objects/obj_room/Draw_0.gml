@@ -7,7 +7,7 @@ var scale_rendery = scaley/2
 
 draw_rectangle(x-scale_renderx+offx,y-scale_rendery+offy,x+scale_renderx+offx,y+scale_rendery+offy,1)
 
-if global.debug = 1{
+if global.debug_generation = 1{
 	draw_set_alpha(0.8)
 	draw_set_colour(c_aqua)
 	
