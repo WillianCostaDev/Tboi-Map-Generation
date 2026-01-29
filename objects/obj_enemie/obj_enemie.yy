@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_wall",
+  "%Name":"obj_enemie",
   "eventList":[],
   "managed":true,
-  "name":"obj_wall",
+  "name":"obj_enemie",
   "overriddenProperties":[],
   "parent":{
     "name":"Exemple objects",
@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_wall",
-    "path":"sprites/spr_wall/spr_wall.yy",
+    "name":"spr_enemie",
+    "path":"sprites/spr_enemie/spr_enemie.yy",
   },
   "spriteMaskId":null,
   "visible":true,

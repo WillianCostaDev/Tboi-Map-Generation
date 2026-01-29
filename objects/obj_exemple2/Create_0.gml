@@ -9,10 +9,19 @@ global.debug_generation = -1
 
 //execute = 1
 
-var size = 16
+var tile_size = 16
+var sizex = 17
+var sizey = 17
 
-Init_WolrdGen(size,size,spr_room,"normal",4,0)
+Init_WolrdGen(tile_size,tile_size,spr_room,"normal",4,tile_size*6)
 
-Add_Object_To_Gen(#FF0000,obj_wall)
+Add_Object_To_Gen(#FF0000,obj_wall,0,0,0,0)
+Add_Object_To_Gen(#000000,obj_pit,0,0,1,0)
+Add_Object_To_Gen(#0000FF,obj_enemie,0,0,1,0)
 
-Start_WolrdGen(room_width/2,room_height/2,6,size,size,size,size,90,2,1)
+Add_Room_To_Gen("Boss",spr_room,last,100,1,1,c_red)
+Add_Room_To_Gen("Shop",spr_room,perpendicular,100,1,1,c_yellow)
+Add_Room_To_Gen("seila",spr_room,perpendicular,100,1,1,c_lime)
+
+//Start_WolrdGen(room_width/2,room_height/2,6,sizex,sizey,sizex,sizey,90,2,1)
+Start_WolrdGen(room_width/2,room_height/2,50,sizex,sizey,sizex,sizey,90,3,1)

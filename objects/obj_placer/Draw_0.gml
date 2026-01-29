@@ -37,18 +37,21 @@ if execute = 1{
 				g = (pixel >> 8) & $ff,		// Green [0-255]	
 				b = (pixel >> 16) & $ff;	// Blue [0-255]	
 				
+				var offx = 0
+				var offy = 0
+				
 				for(var o = 0; o < array_length(global.gen_colors);o++){
 					if make_colour_rgb(r,g,b) = global.gen_colors[o]{
 						object = global.gen_objects[o]
 						color = make_colour_rgb(r,g,b)
+						offx = global.xoffset[o]
+						offy = global.yoffset[o]
 					}
 				}
 	
-				//colision
-				if make_colour_rgb(r,g,b) = color{
-					var Inst = instance_create_depth(x+_x*global.generation_cell_x,y+_y*global.generation_cell_y,depth,object)
-					Inst.image_xscale = 1
-					Inst.image_yscale = 1
+				//Inst
+				if make_colour_rgb(r,g,b) = color and a > 0{
+					var Inst = instance_create_depth(x+offx+_x*global.generation_cell_x,y+offy+_y*global.generation_cell_y,depth,object)
 				}	
 
 			}
@@ -56,5 +59,6 @@ if execute = 1{
 		buffer_delete(_buff);  
 		
 		execute = 0
+		instance_destroy()
 }
 

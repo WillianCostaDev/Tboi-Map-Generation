@@ -1,15 +1,19 @@
 if execute = 1{
+	visible = 1
+	
+	//normal function
+	
+	index = irandom_range(0,sprite_get_number(sprite_ref)-1)
+	
 	var Placer = instance_create_depth(x-(scalex/2),y-(scaley/2),depth-10,obj_placer)
 	
 	Placer.image_xscale = 1
 	Placer.image_yscale = 1
 	
 	Placer.sprite_index = sprite_ref
-	Placer.image_index = irandom_range(0,sprite_get_number(sprite_ref)-1)
+	Placer.image_index = index
 	
 	def_max_number_of_connections = max_number_of_connections
-	
-	execute = -1
 	
 	if collision_point(x,y,obj_room,1,1){
 		instance_destroy()
@@ -46,8 +50,9 @@ if execute = 1{
 		}
 	}
 	
-//	}
+	execute = -1
 }
+
 
 //if execute = -1{
 //	execute = 0

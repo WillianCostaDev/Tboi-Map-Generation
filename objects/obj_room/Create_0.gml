@@ -1,3 +1,5 @@
+master = noone
+
 tag = noone
 number = 0
 max_number_of_connections = 4
@@ -6,6 +8,7 @@ angle = 0
 def_max_number_of_connections = 4
 
 sprite_ref = noone
+index = 0
 debug_color = c_white
 
 //local

@@ -2,15 +2,25 @@
 #macro in_path ("in_path")
 #macro last ("last")
 
-function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,Default_Sprite,Default_Tag = "normal",Default_Number_of_Connections = 4,Default_Config = 1){	
+function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,Default_Sprite,Default_Tag = "normal",Default_Number_of_Connections = 4,Block_path_offset = 8,Default_Config = 0){	
 	global.generation_cell_x = Cell_x_size
 	global.generation_cell_y = Cell_y_size
 	
 	global.generation_sprites = []
 	global.default_sprite = Default_Sprite
 	
+	global.Generation_angle = 0
+	
+	global.block_path_offset = Block_path_offset
+	
+	//Objects
 	global.gen_objects = []
 	global.gen_colors = []
+	global.xoffset = []
+	global.yoffset = []
+	
+	global.stop_path = []
+	global.stop_gen = []
 	
 	if Default_Config{
 		//Type of rooms
@@ -47,9 +57,13 @@ function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,Default_Sprite,Default_
 	}
 }
 
-function Add_Object_To_Gen(Color,Object){
+function Add_Object_To_Gen(Color,Object,Offx=0,Offy=0,Block_doors = 0,Stop_Gen = 0){
 	array_push(global.gen_colors,Color)
 	array_push(global.gen_objects,Object)
+	array_push(global.xoffset,Offx)
+	array_push(global.yoffset,Offy)
+	array_push(global.stop_path,Block_doors)
+	array_push(global.stop_gen,Stop_Gen)
 }
 
 function Add_Room_To_Gen(Room_name = "new",Sprite_Ref,Spawn_Rule = "perpendicular",Spawn_chance = 100,max_number_of_connections = 4,Is_required_to_Spawn = 1,Debug_color = make_colour_rgb(random(255),random(255),random(255))){
@@ -80,10 +94,12 @@ function Start_WolrdGen(Xstart = 0,Ystart = 0,Rooms_Amount = 8,Room_Width = 8,Ro
 	var Wolrd_Gen = instance_create_depth(Xstart,Ystart,0,obj_generate)
 	
 	Wolrd_Gen.Ref = Wolrd_Gen_ref
+	
+	global.Generation_angle = Curve_amount
 }
 
 function Place_object(sprite_ref,index,color,object){
-	var placer = instance_create_depth(0,0,depth,obj_placer)
+	var placer = instance_create_depth(0,0,depth,placer)
 	placer.sprite_index = sprite_ref
 	placer.image_index = index
 	placer.color = color
