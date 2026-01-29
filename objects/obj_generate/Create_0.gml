@@ -21,7 +21,7 @@ map_sizey = ceil(wsize/tile_size_y)
 
 rooms = ds_list_create()
 
-rooms_avaliable = ds_list_create()
+rooms_avaliable = []
 
 //generation
 rooms_amount = Ref.rooms_amount//16
@@ -36,6 +36,7 @@ radius_set = tile_size_y
 
 //start room
 first_room = instance_create_depth(startx,starty,depth,obj_room)
+first_room.sprite_ref = global.default_sprite
 first_room.scalex = tile_size_x
 first_room.scaley = tile_size_y
 first_room.distx = distx
@@ -100,7 +101,7 @@ for(var i = 0; i < array_length(global.debug_generation_color);i++){
 }
 /////////////
 for(var i = 0; i < array_length(tags_avaliable_index);i++){
-	ds_list_add(rooms_avaliable,tags_avaliable_index[i])
+	array_push(rooms_avaliable,tags_avaliable_index[i])
 }
 
 //rooms_amount * forks
@@ -143,26 +144,59 @@ for(var k = 0; k < forks; k ++){
 		setx += lengthdir_x(distx,direc)
 		sety += lengthdir_y(disty,direc)
 		
-		if pause = 0{
-			//Actual room
-			var room_ = instance_create_depth(setx,sety,0,obj_room)
-			ds_list_add(rooms,room_)
+		//Actual room
+		var room_ = instance_create_depth(setx,sety,0,obj_room)
+		ds_list_add(rooms,room_)
 			
-			room_.scalex = tile_size_x
-			room_.scaley = tile_size_y
-			room_.distx = distx
-			room_.disty = disty
-			room_.number = i+1
-			room_.tag = default_tag
-			room_.max_number_of_connections = default_numb_connections
-			room_.angle = angle
-		}else{
-			break;
-		}
+		room_.sprite_ref = global.default_sprite
+		room_.scalex = tile_size_x
+		room_.scaley = tile_size_y
+		room_.distx = distx
+		room_.disty = disty
+		room_.number = i+1
+		room_.tag = default_tag
+		room_.max_number_of_connections = default_numb_connections
+		room_.angle = angle
 		
 		//Type of Room:
 		
-		for(var z = 0; z < ds_list_size(rooms_avaliable); z++){
+		for(var z = 0; z < array_length(rooms_avaliable); z++){
+			//perpendicular rooms
+			var perpendicular_case = rules_per_tag[z] = "perpendicular" and irandom_range(0,100) > 100-chance_spawn[z] and i != actual_room_amount-1
+			
+			var perpendicular_case_fix = i = actual_room_amount-2 and k = forks-1
+			
+			var required_perpendicular = rules_per_tag[z] = "perpendicular" and required_spawn[z] = 1 and perpendicular_case_fix
+			
+			if perpendicular_case or required_perpendicular{
+				rules_per_tag[z] = "done"
+				
+				var ang = choose(90,-90)
+				
+				if(collision_circle(setx+lengthdir_x(distx,direc+ang),sety+lengthdir_y(disty,direc+ang),radius_set/div_check,obj_room,1,0)){
+					ang += 180
+					
+					if(collision_circle(setx+lengthdir_x(distx,direc+ang),sety+lengthdir_y(disty,direc+ang),radius_set/div_check,obj_room,1,0)) and required_perpendicular{
+						restart()
+					}
+				}
+				
+				//generate other rooms
+				var room_p = instance_create_depth(setx+lengthdir_x(distx,direc+ang),sety+lengthdir_y(disty,direc+ang),0,obj_room)
+				room_p.sprite_ref = global.generation_sprites[clamp(z,0,array_length(global.generation_sprites)-1)]
+				room_p.scalex = tile_size_x
+				room_p.scaley = tile_size_y
+				room_p.distx = distx
+				room_p.disty = disty
+				room_p.tag = tags_avaliable_index[z]
+				room_p.number = -i-1
+				room_p.max_number_of_connections = numb_connections[z]
+				room_p.angle = angle
+				room_p.debug_color = debug_color[z]
+				ds_list_add(rooms,room_p)
+	
+			}
+			
 			//Last rooms
 			var last_case = rules_per_tag[z] = "last" and i = actual_room_amount -1 and irandom_range(0,100) > 100-chance_spawn[z] and room_.tag = default_tag
 			
@@ -171,6 +205,7 @@ for(var k = 0; k < forks; k ++){
 			var last_group = last_case or required_last
 			
 			if last_group and room_.tag = default_tag{
+				room_.sprite_ref = global.generation_sprites[z]
 				room_.tag = tags_avaliable_index[z]
 				room_.scalex = tile_size_x
 				room_.scaley = tile_size_y
@@ -195,6 +230,7 @@ for(var k = 0; k < forks; k ++){
 			var required_in_path = rules_per_tag[z] = "in_path" and i = actual_room_amount-1 and required_spawn[z] = 1
 			
 			if in_path_case or required_in_path{
+				room_.sprite_ref = global.generation_sprites[z]
 				room_.tag = tags_avaliable_index[z]
 				room_.scalex = tile_size_x
 				room_.scaley = tile_size_y
@@ -206,45 +242,6 @@ for(var k = 0; k < forks; k ++){
 				room_.debug_color = debug_color[z]
 				rules_per_tag[z] = "done"
 			}	
-			
-			
-			//perpendicular rooms
-			var perpendicular_case = rules_per_tag[z] = "perpendicular" and irandom_range(0,100) > 100-chance_spawn[z] and i != actual_room_amount-1
-			
-			var perpendicular_case_fix = i = actual_room_amount-2 and k = forks-1
-			
-			var required_perpendicular = rules_per_tag[z] = "perpendicular" and required_spawn[z] = 1 and perpendicular_case_fix
-			
-			if perpendicular_case or required_perpendicular{
-				rules_per_tag[z] = "done"
-				
-				var ang = choose(90,-90)
-				
-				if(collision_circle(setx+lengthdir_x(distx,direc+ang),sety+lengthdir_y(disty,direc+ang),radius_set/div_check,obj_room,1,0)){
-					ang += 180
-					
-					if(collision_circle(setx+lengthdir_x(distx,direc+ang),sety+lengthdir_y(disty,direc+ang),radius_set/div_check,obj_room,1,0)) and required_perpendicular{
-						restart()
-					}
-				}
-				
-				if pause = 0{
-					//generate other rooms
-					var room_p = instance_create_depth(setx+lengthdir_x(distx,direc+ang),sety+lengthdir_y(disty,direc+ang),0,obj_room)
-					room_p.scalex = tile_size_x
-					room_p.scaley = tile_size_y
-					room_p.distx = distx
-					room_p.disty = disty
-					room_p.tag = tags_avaliable_index[z]
-					room_p.number = -i-1
-					room_p.max_number_of_connections = numb_connections[z]
-					room_p.angle = angle
-					room_p.debug_color = debug_color[z]
-					ds_list_add(rooms,room_p)
-				}else{
-					break;
-				}
-			}
 		}
 
 		

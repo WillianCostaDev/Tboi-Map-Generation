@@ -1,4 +1,12 @@
 if execute = 1{
+	var Placer = instance_create_depth(x-(scalex/2),y-(scaley/2),depth-10,obj_placer)
+	
+	Placer.image_xscale = 1
+	Placer.image_yscale = 1
+	
+	Placer.sprite_index = sprite_ref
+	Placer.image_index = irandom_range(0,sprite_get_number(sprite_ref)-1)
+	
 	def_max_number_of_connections = max_number_of_connections
 	
 	execute = -1

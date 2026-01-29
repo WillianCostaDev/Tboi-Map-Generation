@@ -5,6 +5,7 @@ angle = 0
 
 def_max_number_of_connections = 4
 
+sprite_ref = noone
 debug_color = c_white
 
 //local

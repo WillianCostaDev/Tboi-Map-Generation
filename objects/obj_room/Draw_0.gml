@@ -8,6 +8,10 @@ var scale_rendery = scaley/2
 draw_rectangle(x-scale_renderx+offx,y-scale_rendery+offy,x+scale_renderx+offx,y+scale_rendery+offy,1)
 
 if global.debug_generation = 1{
+	if sprite_ref != noone{
+		draw_sprite_ext(sprite_ref,0,x-(scalex/2),y-(scaley/2),(scalex)/global.generation_cell_x,(scaley)/global.generation_cell_y,0,c_white,1)
+	}
+	
 	draw_set_alpha(0.8)
 	draw_set_colour(c_aqua)
 	
