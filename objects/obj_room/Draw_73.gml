@@ -7,28 +7,27 @@ if execute = -1{
 	
 	var place_ = global.gen_objects
 	
-	var mul = 0
 	
-	repeat(2){
-		mul += 1
 		
-		for(var i = 0; i < 360/global.Generation_angle;i++){
-			ang += 90
-		
-			var offsetx = (scalex/2)-global.block_path_offset
-			var offsety = (scaley/2)-global.block_path_offset
+		for(var i = 0; i < 360/global.Generation_angle;i++){	
+			var offsetx = global.block_path_offset
+			var offsety = global.block_path_offset
 		
 			var list = ds_list_create()
 		
-			var offx = lengthdir_x(scalex/2,ang)*mul
-			var offy = lengthdir_y(scaley/2,ang)*mul
-		
-			var line_in = collision_line_list(x+lengthdir_x(offsetx,ang)+offx,y+lengthdir_y(offsety,ang)+offy,x+lengthdir_x(scalex/2,ang),y+lengthdir_y(scaley/2,ang),place_,1,0,list,1)
+			var line_in = collision_line_list(
+						  x+lengthdir_x(scalex/2,ang)-lengthdir_x(offsetx,ang),
+						  y+lengthdir_y(scaley/2,ang)-lengthdir_y(offsetx,ang),
+						  x+lengthdir_x(scalex/2,ang),
+						  y+lengthdir_y(scaley/2,ang),
+						  place_,1,0,list,1)
 			
-			if mul = 2{
-				//inverse case
-				line_in = collision_line_list(x+lengthdir_x(offsetx,ang)+lengthdir_x(scalex/2,ang),y+lengthdir_y(offsety,ang)+lengthdir_y(scaley/2,ang),x+lengthdir_x(scalex/2,ang),y+lengthdir_y(scaley/2,ang),place_,1,0,list,1)
-			}
+			//draw_line_width(
+			//			  x+lengthdir_x(scalex/2,ang)-lengthdir_x(offsetx,ang),
+			//			  y+lengthdir_y(scaley/2,ang)-lengthdir_y(offsetx,ang),
+			//			  x+lengthdir_x(scalex/2,ang),
+			//			  y+lengthdir_y(scaley/2,ang)
+			//			  ,3)
 			
 			//determine if is in path
 		
@@ -55,13 +54,18 @@ if execute = -1{
 				}
 			}
 			
-			if has_connect = 1{
-			//	draw_line_width(x+lengthdir_x(offsetx,ang),y+lengthdir_y(offsety,ang),x+lengthdir_x(scalex/2,ang),y+lengthdir_y(scaley/2,ang),8)
-			}
-			
 			for(var k = 0; k < ds_list_size(list);k++){
-				for(var j = 0;j < array_length(global.gen_objects)-1;j++){
-					if list[|k].object_index = global.gen_objects[j] and has_connect{
+				
+				for(var j = 0;j < array_length(global.gen_objects);j++){
+					
+					if (!instance_exists(list[|k])){
+						return;
+					}
+					
+					//list[|k].object_index
+					//não existe de alguma forma
+					
+					if  has_connect and global.gen_objects[j] = list[|k].object_index{
 						//está no caminho
 						if global.stop_path[j] = 1{
 							if global.stop_gen[j] = 1{
@@ -69,15 +73,21 @@ if execute = -1{
 							}
 							instance_destroy(list[|k])
 						}
-						
 					}
 				}
 			}
 		
 			ds_list_destroy(list)
+			
+			ang += global.Generation_angle
 		}
-		//
-	}
+		
+		
+		
+		
+		
+		/////////////////////Inverse Case
+		
 }
 
 
