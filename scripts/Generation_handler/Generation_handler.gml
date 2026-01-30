@@ -2,12 +2,13 @@
 #macro in_path ("in_path")
 #macro last ("last")
 
-function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,Default_Sprite,Default_Tag = "normal",Default_Number_of_Connections = 4,Block_path_offset = 8,Default_Config = 0){	
+function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,First_Room_Sprite,Default_Sprite,Default_Tag = "normal",Default_Number_of_Connections = 4,Block_path_offset = 8,Default_Config = 0){	
 	global.generation_cell_x = Cell_x_size
 	global.generation_cell_y = Cell_y_size
 	
 	global.generation_sprites = []
 	global.default_sprite = Default_Sprite
+	global.Init_sprite = First_Room_Sprite
 	
 	global.Generation_angle = 0
 	

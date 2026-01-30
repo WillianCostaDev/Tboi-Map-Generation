@@ -1,7 +1,8 @@
 
 
-if execute = -1{
-	//execute = 0
+if round(execute) != 0{
+	execute = lerp(execute,0,0.04)
+	
 	//stop path
 	var ang = 0
 	
@@ -9,7 +10,7 @@ if execute = -1{
 	
 	
 		
-		for(var i = 0; i < 360/global.Generation_angle;i++){	
+		for(var i = 0; i < (360/global.Generation_angle);i++){	
 			var offsetx = global.block_path_offset
 			var offsety = global.block_path_offset
 		

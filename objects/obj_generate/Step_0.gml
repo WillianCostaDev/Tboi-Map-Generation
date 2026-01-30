@@ -2,7 +2,7 @@ if execute = 1{
 	
 	//First Room
 	first_room = instance_create_depth(startx,starty,depth,obj_room)
-	first_room.sprite_ref = global.default_sprite
+	first_room.sprite_ref = global.Init_sprite
 	first_room.scalex = tile_size_x
 	first_room.scaley = tile_size_y
 	first_room.distx = distx

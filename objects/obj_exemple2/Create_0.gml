@@ -13,7 +13,7 @@ var tile_size = 16
 var sizex = 17
 var sizey = 17
 
-Init_WolrdGen(tile_size,tile_size,spr_room_normal,"normal",4,tile_size*4)
+Init_WolrdGen(tile_size,tile_size,spr_room_init,spr_room_normal,"normal",4,tile_size*4)
 
 Add_Object_To_Gen(#FF0000,obj_wall,0,0,0,0)
 Add_Object_To_Gen(#000000,obj_pit,0,0,1,0)
