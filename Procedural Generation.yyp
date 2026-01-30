@@ -28,6 +28,7 @@
   "resources":[
     {"id":{"name":"Generation_Font","path":"fonts/Generation_Font/Generation_Font.yy",},},
     {"id":{"name":"obj_chest","path":"objects/obj_chest/obj_chest.yy",},},
+    {"id":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},},
     {"id":{"name":"obj_enemie","path":"objects/obj_enemie/obj_enemie.yy",},},
     {"id":{"name":"obj_exemple","path":"objects/obj_exemple/obj_exemple.yy",},},
     {"id":{"name":"obj_exemple2","path":"objects/obj_exemple2/obj_exemple2.yy",},},
@@ -42,6 +43,7 @@
     {"id":{"name":"Exemple","path":"rooms/Exemple/Exemple.yy",},},
     {"id":{"name":"Generation_handler","path":"scripts/Generation_handler/Generation_handler.yy",},},
     {"id":{"name":"spr_chest","path":"sprites/spr_chest/spr_chest.yy",},},
+    {"id":{"name":"spr_door","path":"sprites/spr_door/spr_door.yy",},},
     {"id":{"name":"spr_enemie","path":"sprites/spr_enemie/spr_enemie.yy",},},
     {"id":{"name":"spr_pit","path":"sprites/spr_pit/spr_pit.yy",},},
     {"id":{"name":"spr_room_display","path":"sprites/spr_room_display/spr_room_display.yy",},},

@@ -2,7 +2,7 @@
 #macro in_path ("in_path")
 #macro last ("last")
 
-function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,First_Room_Sprite,Default_Sprite,Default_Tag = "normal",Default_Number_of_Connections = 4,Block_path_offsetx = 16,Block_path_offsety = 16,Default_Config = 0){	
+function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,First_Room_Sprite,Default_Sprite,Default_Tag = "normal",Door_Object,Default_Number_of_Connections = 4,Block_path_offsetx = 16,Block_path_offsety = 16,Default_Config = 0){	
 	global.generation_cell_x = Cell_x_size
 	global.generation_cell_y = Cell_y_size
 	
@@ -14,6 +14,9 @@ function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,First_Room_Sprite,Defau
 	
 	global.block_path_offsetx = Block_path_offsetx
 	global.block_path_offsety = Block_path_offsety
+	
+	//Door stuff
+	global.door_object = Door_Object
 	
 	//Objects
 	global.gen_objects = []
