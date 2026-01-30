@@ -11,14 +11,14 @@ if round(execute) != 0{
 	
 		
 		for(var i = 0; i < (360/global.Generation_angle);i++){	
-			var offsetx = global.block_path_offset
-			var offsety = global.block_path_offset
+			var offsetx = global.block_path_offsetx
+			var offsety = global.block_path_offsety
 		
 			var list = ds_list_create()
 		
 			var line_in = collision_line_list(
 						  x+lengthdir_x(scalex/2,ang)-lengthdir_x(offsetx,ang),
-						  y+lengthdir_y(scaley/2,ang)-lengthdir_y(offsetx,ang),
+						  y+lengthdir_y(scaley/2,ang)-lengthdir_y(offsety,ang),
 						  x+lengthdir_x(scalex/2,ang),
 						  y+lengthdir_y(scaley/2,ang),
 						  place_,1,0,list,1)
