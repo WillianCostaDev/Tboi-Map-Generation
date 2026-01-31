@@ -11,15 +11,16 @@
   "defaultScriptType":1,
   "Folders":[
     {"$GMFolder":"","%Name":"Exemple Game","folderPath":"folders/Exemple Game.yy","name":"Exemple Game","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Exemple objects","folderPath":"folders/Exemple Game/Exemple objects.yy","name":"Exemple objects","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Exemple objects","folderPath":"folders/Exemple Game/Old/Exemple objects.yy","name":"Exemple objects","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Old","folderPath":"folders/Exemple Game/Old.yy","name":"Old","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Procedural Generation","folderPath":"folders/Procedural Generation.yy","name":"Procedural Generation","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Core","folderPath":"folders/Procedural Generation/Core.yy","name":"Core","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"GMRoomLoader","folderPath":"folders/Procedural Generation/Core/GMRoomLoader.yy","name":"GMRoomLoader","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"02. Public","folderPath":"folders/Procedural Generation/Core/GMRoomLoader/02. Public.yy","name":"02. Public","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"03. Private","folderPath":"folders/Procedural Generation/Core/GMRoomLoader/03. Private.yy","name":"03. Private","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"01. General","folderPath":"folders/Procedural Generation/Core/GMRoomLoader/03. Private/01. General.yy","name":"01. General","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"02. Data","folderPath":"folders/Procedural Generation/Core/GMRoomLoader/03. Private/02. Data.yy","name":"02. Data","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"03. Debug View","folderPath":"folders/Procedural Generation/Core/GMRoomLoader/03. Private/03. Debug View.yy","name":"03. Debug View","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Procedural Generation","folderPath":"folders/Procedural Generation.yy","name":"Procedural Generation","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Core","folderPath":"folders/Procedural Generation/Core.yy","name":"Core","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "ForcedPrefabProjectReferences":[
     {"link":"io.gamemaker.sdfshaders-1.0.0","name":"io.gamemaker.sdfshaders-1.0.0","path":"io.gamemaker.sdfshaders-1.0.0.yyp",},
@@ -48,6 +49,7 @@
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
     {"id":{"name":"Exemple_2","path":"rooms/Exemple_2/Exemple_2.yy",},},
     {"id":{"name":"Exemple","path":"rooms/Exemple/Exemple.yy",},},
+    {"id":{"name":"Room_base","path":"rooms/Room_base/Room_base.yy",},},
     {"id":{"name":"__RoomLoaderDataCore","path":"scripts/__RoomLoaderDataCore/__RoomLoaderDataCore.yy",},},
     {"id":{"name":"__RoomLoaderDataLayerAsset","path":"scripts/__RoomLoaderDataLayerAsset/__RoomLoaderDataLayerAsset.yy",},},
     {"id":{"name":"__RoomLoaderDataLayerBackground","path":"scripts/__RoomLoaderDataLayerBackground/__RoomLoaderDataLayerBackground.yy",},},
@@ -81,6 +83,7 @@
   "RoomOrderNodes":[
     {"roomId":{"name":"Exemple","path":"rooms/Exemple/Exemple.yy",},},
     {"roomId":{"name":"Exemple_2","path":"rooms/Exemple_2/Exemple_2.yy",},},
+    {"roomId":{"name":"Room_base","path":"rooms/Room_base/Room_base.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

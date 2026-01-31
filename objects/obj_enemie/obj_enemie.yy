@@ -7,7 +7,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Exemple objects",
-    "path":"folders/Exemple Game/Exemple objects.yy",
+    "path":"folders/Exemple Game/Old/Exemple objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -17,8 +17,8 @@
   ],
   "name":"Exemple",
   "parent":{
-    "name":"Exemple Game",
-    "path":"folders/Exemple Game.yy",
+    "name":"Old",
+    "path":"folders/Exemple Game/Old.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

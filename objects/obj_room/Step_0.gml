@@ -3,15 +3,22 @@ if execute = 1{
 	
 	//normal function
 	
-	index = irandom_range(0,sprite_get_number(sprite_ref)-1)
+	//index = irandom_range(0,sprite_get_number(sprite_ref)-1)
 	
-	var Placer = instance_create_depth(x-(scalex/2),y-(scaley/2),depth-10,obj_placer)
+	//var Placer = instance_create_depth(x-(scalex/2),y-(scaley/2),depth-10,obj_placer)
 	
-	Placer.image_xscale = 1
-	Placer.image_yscale = 1
+	//Placer.image_xscale = 1
+	//Placer.image_yscale = 1
 	
-	Placer.sprite_index = sprite_ref
-	Placer.image_index = index
+	//Placer.sprite_index = sprite_ref
+	//Placer.image_index = index
+	
+	//Place Room
+	
+	RoomLoader.DataInit(room_ref)
+	RoomLoader.Load(room_ref,x-((global.Room_Width*global.generation_cell_x)/2),y-((global.Room_Height*global.generation_cell_y)/2))
+	
+	////////
 	
 	def_max_number_of_connections = max_number_of_connections
 	

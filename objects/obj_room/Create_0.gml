@@ -7,7 +7,7 @@ angle = 0
 
 def_max_number_of_connections = 4
 
-sprite_ref = noone
+room_ref = noone
 index = 0
 debug_color = c_white
 

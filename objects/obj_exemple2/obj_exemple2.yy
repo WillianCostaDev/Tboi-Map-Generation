@@ -13,8 +13,8 @@
   "name":"obj_exemple2",
   "overriddenProperties":[],
   "parent":{
-    "name":"Exemple Game",
-    "path":"folders/Exemple Game.yy",
+    "name":"Old",
+    "path":"folders/Exemple Game/Old.yy",
   },
   "parentObjectId":null,
   "persistent":false,

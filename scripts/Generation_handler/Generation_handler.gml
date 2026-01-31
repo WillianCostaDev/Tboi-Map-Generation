@@ -2,13 +2,16 @@
 #macro in_path ("in_path")
 #macro last ("last")
 
-function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,First_Room_Sprite,Default_Sprite,Default_Tag = "normal",Door_Object,Default_Number_of_Connections = 4,Block_path_offsetx = 16,Block_path_offsety = 16,Default_Config = 0){	
+function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,Room_size_x,Room_size_y,Room_Init_Reference,Room_Reference,Door_Object,Default_Number_of_Connections = 4,Block_path_offsetx = 16,Block_path_offsety = 16){	
 	global.generation_cell_x = Cell_x_size
 	global.generation_cell_y = Cell_y_size
 	
-	global.generation_sprites = []
-	global.default_sprite = Default_Sprite
-	global.Init_sprite = First_Room_Sprite
+	global.generation_rooms = []
+	global.default_room = Room_Reference
+	global.Init_room = Room_Init_Reference
+	
+	global.Room_Width = Room_size_x
+	global.Room_Height = Room_size_y
 	
 	global.Generation_angle = 0
 	
@@ -26,54 +29,37 @@ function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,First_Room_Sprite,Defau
 	
 	global.stop_path = []
 	global.stop_gen = []
-	
-	if Default_Config{
-		//Type of rooms
-		global.default_tag_  = Default_Tag
-		global.default_numb_connections_  = Default_Number_of_Connections
 
-		global.tags_avaliable_index_  = ["boss","chest","secret"]
+	//Type of rooms
+	global.default_tag_  = "normal"
+	global.default_numb_connections_  = Default_Number_of_Connections
 
-		global.rules_per_tag_  = ["last","perpendicular","perpendicular"]
+	global.tags_avaliable_index_  = []
 
-		global.chance_spawn_ =[100,25,25]
+	global.rules_per_tag_  = []
 
-		global.numb_connections_  = [1,1,1]
+	global.chance_spawn_ =[]
 
-		global.required_spawn_  =[1,1,1]
+	global.numb_connections_  = []
+
+	global.required_spawn_  =[]
 		
-		global.debug_generation_color = [c_red,c_yellow,c_purple]
-	}else{
-		//Type of rooms
-		global.default_tag_  = Default_Tag
-		global.default_numb_connections_  = Default_Number_of_Connections
-
-		global.tags_avaliable_index_  = []
-
-		global.rules_per_tag_  = []
-
-		global.chance_spawn_ =[]
-
-		global.numb_connections_  = []
-
-		global.required_spawn_  =[]
-		
-		global.debug_generation_color = []
-	}
+	global.debug_generation_color = []
 }
 
-function Add_Object_To_Gen(Color,Object,Offx=0,Offy=0,Block_doors = 0,Stop_Gen = 0){
-	array_push(global.gen_colors,Color)
-	array_push(global.gen_objects,Object)
-	array_push(global.xoffset,Offx)
-	array_push(global.yoffset,Offy)
-	array_push(global.stop_path,Block_doors)
-	array_push(global.stop_gen,Stop_Gen)
-}
+
+//function Add_Object_To_Gen(Color,Object,Offx=0,Offy=0,Block_doors = 0,Stop_Gen = 0){
+//	array_push(global.gen_colors,Color)
+//	array_push(global.gen_objects,Object)
+//	array_push(global.xoffset,Offx)
+//	array_push(global.yoffset,Offy)
+//	array_push(global.stop_path,Block_doors)
+//	array_push(global.stop_gen,Stop_Gen)
+//}
 
 function Add_Room_To_Gen(Room_name = "new",Sprite_Ref,Spawn_Rule = "perpendicular",Spawn_chance = 100,max_number_of_connections = 4,Is_required_to_Spawn = 1,Debug_color = make_colour_rgb(random(255),random(255),random(255))){
 	array_push(global.tags_avaliable_index_ ,Room_name)
-	array_push(global.generation_sprites,Sprite_Ref)
+	array_push(global.generation_rooms,Sprite_Ref)
 	array_push(global.rules_per_tag_ ,Spawn_Rule)
 	array_push(global.chance_spawn_ ,Spawn_chance)
 	array_push(global.numb_connections_ ,max_number_of_connections)
@@ -82,17 +68,17 @@ function Add_Room_To_Gen(Room_name = "new",Sprite_Ref,Spawn_Rule = "perpendicula
 }
 
 
-function Start_WolrdGen(Xstart = 0,Ystart = 0,Rooms_Amount = 8,Room_Width = 8,Room_Height = 8,Horizontal_Distance_between_rooms = 8,Vertical_Distance_between_rooms = 8,Curve_amount = 90,Forks = 2,Reset_if_Fail = 1){
+function Start_WolrdGen(Xstart = 0,Ystart = 0,Rooms_Amount = 8,Horizontal_Distance_between_rooms = 8,Vertical_Distance_between_rooms = 8,Curve_amount = 90,Forks = 2,Reset_if_Fail = 1){
 	Forks = clamp(Forks,0,4)
 	
 	var Wolrd_Gen_ref = instance_create_depth(Xstart,Ystart,0,obj_generate_ref)
 	
 	Wolrd_Gen_ref.rooms_amount = Rooms_Amount
-	Wolrd_Gen_ref.tile_size_x = Room_Width*global.generation_cell_x
-	Wolrd_Gen_ref.tile_size_y = Room_Height*global.generation_cell_y
+	Wolrd_Gen_ref.tile_size_x = global.Room_Width*global.generation_cell_x
+	Wolrd_Gen_ref.tile_size_y = global.Room_Height*global.generation_cell_y
 	Wolrd_Gen_ref.distx = Horizontal_Distance_between_rooms*global.generation_cell_x
 	Wolrd_Gen_ref.disty = Vertical_Distance_between_rooms*global.generation_cell_y
-	Wolrd_Gen_ref.angle = Curve_amount
+	Wolrd_Gen_ref.angle = 90
 	Wolrd_Gen_ref.forks = Forks
 	Wolrd_Gen_ref.reset_if_fail = Reset_if_Fail
 	
