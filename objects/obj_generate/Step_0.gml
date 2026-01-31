@@ -2,7 +2,7 @@ if execute = 1{
 	
 	//First Room
 	first_room = instance_create_depth(startx,starty,depth,obj_room)
-	first_room.room_ref = global.Init_room
+	first_room.room_ref = global._Init_room
 	first_room.scalex = tile_size_x
 	first_room.scaley = tile_size_y
 	first_room.distx = distx
@@ -44,7 +44,7 @@ if execute = 1{
 			var room_ = instance_create_depth(setx,sety,0,obj_room)
 			ds_list_add(rooms,room_)
 			
-			room_.room_ref = global.default_room
+			room_.room_ref = global._default_room
 			room_.scalex = tile_size_x
 			room_.scaley = tile_size_y
 			room_.distx = distx
@@ -80,7 +80,7 @@ if execute = 1{
 				
 					//generate other rooms
 					var room_p = instance_create_depth(setx+lengthdir_x(distx,direc+ang),sety+lengthdir_y(disty,direc+ang),0,obj_room)
-					room_p.room_ref = global.generation_rooms[clamp(z,0,array_length(global.generation_rooms)-1)]
+					room_p.room_ref = global._generation_rooms[clamp(z,0,array_length(global._generation_rooms)-1)]
 					room_p.scalex = tile_size_x
 					room_p.scaley = tile_size_y
 					room_p.distx = distx
@@ -103,7 +103,7 @@ if execute = 1{
 				var last_group = last_case or required_last
 			
 				if last_group and room_.tag = default_tag{
-					room_.room_ref = global.generation_rooms[clamp(z,0,array_length(global.generation_rooms)-1)]
+					room_.room_ref = global._generation_rooms[clamp(z,0,array_length(global._generation_rooms)-1)]
 					room_.tag = tags_avaliable_index[z]
 					room_.scalex = tile_size_x
 					room_.scaley = tile_size_y
@@ -129,7 +129,7 @@ if execute = 1{
 				var required_in_path = rules_per_tag[z] = "in_path" and i = actual_room_amount-1 and required_spawn[z] = 1
 			
 				if in_path_case or required_in_path{
-					room_.room_ref = global.generation_rooms[clamp(z,0,array_length(global.generation_rooms)-1)]
+					room_.room_ref = global._generation_rooms[clamp(z,0,array_length(global._generation_rooms)-1)]
 					room_.tag = tags_avaliable_index[z]
 					room_.scalex = tile_size_x
 					room_.scaley = tile_size_y

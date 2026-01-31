@@ -1,16 +1,15 @@
 {
   "$GMRoom":"v1",
-  "%Name":"Room_base",
+  "%Name":"Room_base_1",
   "creationCodeFile":"",
   "inheritCode":false,
   "inheritCreationOrder":false,
   "inheritLayers":false,
   "instanceCreationOrder":[
-    {"name":"inst_7A296A0A","path":"rooms/Room_base/Room_base.yy",},
-    {"name":"inst_7641B42F","path":"rooms/Room_base/Room_base.yy",},
-    {"name":"inst_5B56CB85","path":"rooms/Room_base/Room_base.yy",},
-    {"name":"inst_7A691442","path":"rooms/Room_base/Room_base.yy",},
-    {"name":"inst_17FDB87B","path":"rooms/Room_base/Room_base.yy",},
+    {"name":"inst_7A296A0A","path":"rooms/Room_base_1/Room_base_1.yy",},
+    {"name":"inst_7641B42F","path":"rooms/Room_base_1/Room_base_1.yy",},
+    {"name":"inst_5B56CB85","path":"rooms/Room_base_1/Room_base_1.yy",},
+    {"name":"inst_7A691442","path":"rooms/Room_base_1/Room_base_1.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -19,13 +18,12 @@
         {"$GMRInstance":"v4","%Name":"inst_7641B42F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7641B42F","objectId":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":19.0,"scaleY":1.0,"x":0.0,"y":192.0,},
         {"$GMRInstance":"v4","%Name":"inst_5B56CB85","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5B56CB85","objectId":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":12.0,"x":0.0,"y":0.0,},
         {"$GMRInstance":"v4","%Name":"inst_7A691442","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7A691442","objectId":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":12.0,"x":288.0,"y":0.0,},
-        {"$GMRInstance":"v4","%Name":"inst_17FDB87B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_17FDB87B","objectId":{"name":"obj_enemie","path":"objects/obj_enemie/obj_enemie.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":144.0,"y":96.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
   ],
-  "name":"Room_base",
+  "name":"Room_base_1",
   "parent":{
-    "name":"Exemple Game",
-    "path":"folders/Exemple Game.yy",
+    "name":"Rooms",
+    "path":"folders/Exemple Game/Rooms.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

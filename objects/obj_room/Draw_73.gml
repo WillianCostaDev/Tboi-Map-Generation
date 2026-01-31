@@ -6,13 +6,13 @@ if round(execute) != 0{
 	//stop path
 	var ang = 0
 	
-	var place_ = global.gen_objects
+	var place_ = global._gen_objects
 	
 	
 		
-		for(var i = 0; i < (360/global.Generation_angle);i++){	
-			var offsetx = global.block_path_offsetx
-			var offsety = global.block_path_offsety
+		for(var i = 0; i < (360/global._Generation_angle);i++){	
+			var offsetx = global._block_path_offsetx
+			var offsety = global._block_path_offsety
 		
 			var list = ds_list_create()
 		
@@ -57,7 +57,7 @@ if round(execute) != 0{
 			
 			for(var k = 0; k < ds_list_size(list);k++){
 				
-				for(var j = 0;j < array_length(global.gen_objects);j++){
+				for(var j = 0;j < array_length(global._gen_objects);j++){
 					
 					if (!instance_exists(list[|k])){
 						return;
@@ -66,10 +66,10 @@ if round(execute) != 0{
 					//list[|k].object_index
 					//não existe de alguma forma
 					
-					if  has_connect and global.gen_objects[j] = list[|k].object_index{
+					if  has_connect and global._gen_objects[j] = list[|k].object_index{
 						//está no caminho
-						if global.stop_path[j] = 1{
-							if global.stop_gen[j] = 1{
+						if global._stop_path[j] = 1{
+							if global._stop_gen[j] = 1{
 								master.restart()
 							}
 							instance_destroy(list[|k])
@@ -80,7 +80,7 @@ if round(execute) != 0{
 		
 			ds_list_destroy(list)
 			
-			ang += global.Generation_angle
+			ang += global._Generation_angle
 		}
 		
 		

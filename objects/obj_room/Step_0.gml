@@ -16,7 +16,7 @@ if execute = 1{
 	//Place Room
 	
 	RoomLoader.DataInit(room_ref)
-	RoomLoader.Load(room_ref,x-((global.Room_Width*global.generation_cell_x)/2),y-((global.Room_Height*global.generation_cell_y)/2))
+	RoomLoader.Load(room_ref,x-((global._Room_Width*global._generation_cell_x)/2),y-((global._Room_Height*global._generation_cell_y)/2))
 	
 	////////
 	

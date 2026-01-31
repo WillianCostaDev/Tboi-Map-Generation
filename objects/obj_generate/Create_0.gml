@@ -56,42 +56,42 @@ restart = function(){
 }
 
 //Type of rooms
-default_tag = global.default_tag_
-default_numb_connections = global.default_numb_connections_
+default_tag = global._default_tag_
+default_numb_connections = global._default_numb_connections_
 
-tags_avaliable_index = array_create(array_length(global.tags_avaliable_index_),noone) 
+tags_avaliable_index = array_create(array_length(global._tags_avaliable_index_),noone) 
 
-for(var i = 0; i < array_length(global.tags_avaliable_index_);i++){
-	array_push(tags_avaliable_index,global.tags_avaliable_index_[i])
+for(var i = 0; i < array_length(global._tags_avaliable_index_);i++){
+	array_push(tags_avaliable_index,global._tags_avaliable_index_[i])
 }
 
-rules_per_tag = array_create(array_length(global.rules_per_tag_),noone) 
+rules_per_tag = array_create(array_length(global._rules_per_tag_),noone) 
 
-for(var i = 0; i < array_length(global.rules_per_tag_);i++){
-	array_push(rules_per_tag,global.rules_per_tag_[i])
+for(var i = 0; i < array_length(global._rules_per_tag_);i++){
+	array_push(rules_per_tag,global._rules_per_tag_[i])
 }
 
-chance_spawn = array_create(array_length(global.chance_spawn_),noone) 
+chance_spawn = array_create(array_length(global._chance_spawn_),noone) 
 
-for(var i = 0; i < array_length(global.chance_spawn_);i++){
-	array_push(chance_spawn,global.chance_spawn_[i])
+for(var i = 0; i < array_length(global._chance_spawn_);i++){
+	array_push(chance_spawn,global._chance_spawn_[i])
 }
 
-numb_connections = array_create(array_length(global.numb_connections_),noone) 
+numb_connections = array_create(array_length(global._numb_connections_),noone) 
 
-for(var i = 0; i < array_length(global.numb_connections_);i++){
-	array_push(numb_connections,global.numb_connections_[i])
+for(var i = 0; i < array_length(global._numb_connections_);i++){
+	array_push(numb_connections,global._numb_connections_[i])
 }
 
-required_spawn = array_create(array_length(global.required_spawn_),noone) 
+required_spawn = array_create(array_length(global._required_spawn_),noone) 
 
-for(var i = 0; i < array_length(global.required_spawn_);i++){
-	array_push(required_spawn,global.required_spawn_[i])
+for(var i = 0; i < array_length(global._required_spawn_);i++){
+	array_push(required_spawn,global._required_spawn_[i])
 }
-debug_color = array_create(array_length(global.debug_generation_color),noone) 
+debug_color = array_create(array_length(global._debug_generation_color),noone) 
 
-for(var i = 0; i < array_length(global.debug_generation_color);i++){
-	array_push(debug_color,global.debug_generation_color[i])
+for(var i = 0; i < array_length(global._debug_generation_color);i++){
+	array_push(debug_color,global._debug_generation_color[i])
 }
 /////////////
 for(var i = 0; i < array_length(tags_avaliable_index);i++){
@@ -109,5 +109,6 @@ if angle != 0{
 }
 
 actual_room_amount = ceil(rooms_amount/forks)
+
 
 

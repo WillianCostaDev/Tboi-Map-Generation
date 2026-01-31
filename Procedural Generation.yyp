@@ -11,8 +11,9 @@
   "defaultScriptType":1,
   "Folders":[
     {"$GMFolder":"","%Name":"Exemple Game","folderPath":"folders/Exemple Game.yy","name":"Exemple Game","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Exemple objects","folderPath":"folders/Exemple Game/Old/Exemple objects.yy","name":"Exemple objects","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Rooms","folderPath":"folders/Exemple Game/Rooms.yy","name":"Rooms","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Old","folderPath":"folders/Exemple Game/Old.yy","name":"Old","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Exemple objects","folderPath":"folders/Exemple Game/Old/Exemple objects.yy","name":"Exemple objects","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Procedural Generation","folderPath":"folders/Procedural Generation.yy","name":"Procedural Generation","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Core","folderPath":"folders/Procedural Generation/Core.yy","name":"Core","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"GMRoomLoader","folderPath":"folders/Procedural Generation/Core/GMRoomLoader.yy","name":"GMRoomLoader","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -49,7 +50,9 @@
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
     {"id":{"name":"Exemple_2","path":"rooms/Exemple_2/Exemple_2.yy",},},
     {"id":{"name":"Exemple","path":"rooms/Exemple/Exemple.yy",},},
-    {"id":{"name":"Room_base","path":"rooms/Room_base/Room_base.yy",},},
+    {"id":{"name":"Room_base_1","path":"rooms/Room_base_1/Room_base_1.yy",},},
+    {"id":{"name":"Room_base_2","path":"rooms/Room_base_2/Room_base_2.yy",},},
+    {"id":{"name":"Room_base_3","path":"rooms/Room_base_3/Room_base_3.yy",},},
     {"id":{"name":"__RoomLoaderDataCore","path":"scripts/__RoomLoaderDataCore/__RoomLoaderDataCore.yy",},},
     {"id":{"name":"__RoomLoaderDataLayerAsset","path":"scripts/__RoomLoaderDataLayerAsset/__RoomLoaderDataLayerAsset.yy",},},
     {"id":{"name":"__RoomLoaderDataLayerBackground","path":"scripts/__RoomLoaderDataLayerBackground/__RoomLoaderDataLayerBackground.yy",},},
@@ -83,7 +86,9 @@
   "RoomOrderNodes":[
     {"roomId":{"name":"Exemple","path":"rooms/Exemple/Exemple.yy",},},
     {"roomId":{"name":"Exemple_2","path":"rooms/Exemple_2/Exemple_2.yy",},},
-    {"roomId":{"name":"Room_base","path":"rooms/Room_base/Room_base.yy",},},
+    {"roomId":{"name":"Room_base_1","path":"rooms/Room_base_1/Room_base_1.yy",},},
+    {"roomId":{"name":"Room_base_2","path":"rooms/Room_base_2/Room_base_2.yy",},},
+    {"roomId":{"name":"Room_base_3","path":"rooms/Room_base_3/Room_base_3.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
