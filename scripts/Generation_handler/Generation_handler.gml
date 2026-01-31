@@ -2,7 +2,7 @@
 #macro in_path ("in_path")
 #macro last ("last")
 
-function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,Room_size_x,Room_size_y,Room_Init_Reference,Room_Reference,Door_Object,Default_Number_of_Connections = 4,Block_path_offsetx = 16,Block_path_offsety = 16){	
+function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,Room_Init_Reference,Room_Reference,Door_Object,Default_Number_of_Connections = 4,Block_path_offsetx = 16,Block_path_offsety = 16){	
 	global.generation_cell_x = Cell_x_size
 	global.generation_cell_y = Cell_y_size
 	
@@ -10,8 +10,8 @@ function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,Room_size_x,Room_size_y
 	global.default_room = Room_Reference
 	global.Init_room = Room_Init_Reference
 	
-	global.Room_Width = Room_size_x
-	global.Room_Height = Room_size_y
+	global.Room_Width = (RoomLoader.DataGetWidth(Room_Reference))/Cell_x_size //Room_size_x
+	global.Room_Height =(RoomLoader.DataGetHeight(Room_Reference))/Cell_y_size //Room_size_y
 	
 	global.Generation_angle = 0
 	
@@ -57,9 +57,9 @@ function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,Room_size_x,Room_size_y
 //	array_push(global.stop_gen,Stop_Gen)
 //}
 
-function Add_Room_To_Gen(Room_name = "new",Sprite_Ref,Spawn_Rule = "perpendicular",Spawn_chance = 100,max_number_of_connections = 4,Is_required_to_Spawn = 1,Debug_color = make_colour_rgb(random(255),random(255),random(255))){
+function Add_Room_To_Gen(Room_name = "new",Room_Ref,Spawn_Rule = "perpendicular",Spawn_chance = 100,max_number_of_connections = 4,Is_required_to_Spawn = 1,Debug_color = make_colour_rgb(random(255),random(255),random(255))){
 	array_push(global.tags_avaliable_index_ ,Room_name)
-	array_push(global.generation_rooms,Sprite_Ref)
+	array_push(global.generation_rooms,Room_Ref)
 	array_push(global.rules_per_tag_ ,Spawn_Rule)
 	array_push(global.chance_spawn_ ,Spawn_chance)
 	array_push(global.numb_connections_ ,max_number_of_connections)
