@@ -47,7 +47,14 @@ if execute = 1{
 			if array_length(global._default_rooms_array) = 0{
 				room_.room_ref = global._default_room
 			}else{
-				room_.room_ref = global._default_rooms_array[irandom_range(0,array_length(global._default_rooms_array)-1)]
+				var index_set = irandom_range(0,array_length(global._default_rooms_array)-1)
+				
+				room_.room_ref = global._default_rooms_array[index_set]
+				
+				if global._Repeat_Rooms != false and array_length(global._default_rooms_array) != 1{
+					array_delete(global._default_rooms_array,index_set,1)
+				}
+				
 			}
 			room_.scalex = tile_size_x
 			room_.scaley = tile_size_y
@@ -98,6 +105,11 @@ if execute = 1{
 					//generate other rooms
 					var room_p = instance_create_depth(setx+offx+lengthdir_x(distx_gen,direc+ang),sety+offy+lengthdir_y(disty_gen,direc+ang),0,obj_room)
 					room_p.room_ref = global._generation_rooms[clamp(z,0,array_length(global._generation_rooms)-1)]
+
+					if global._Repeat_Rooms != false and array_length(global._generation_rooms) != 1{
+						array_delete(global._generation_rooms,z,1)
+					}					
+
 					room_p.scalex = tile_size_x_gen
 					room_p.scaley = tile_size_y_gen
 					room_p.distx = distx_gen
@@ -123,6 +135,11 @@ if execute = 1{
 					room_.x += offx
 					room_.y += offy
 					room_.room_ref = global._generation_rooms[clamp(z,0,array_length(global._generation_rooms)-1)]
+					
+					if global._Repeat_Rooms != false and array_length(global._generation_rooms) != 1{
+						array_delete(global._generation_rooms,z,1)
+					}	
+					
 					room_.tag = tags_avaliable_index[z]
 					room_.scalex = tile_size_x_gen
 					room_.scaley = tile_size_y_gen
@@ -151,6 +168,11 @@ if execute = 1{
 					room_.x += offx
 					room_.y += offy
 					room_.room_ref = global._generation_rooms[clamp(z,0,array_length(global._generation_rooms)-1)]
+					
+					if global._Repeat_Rooms != false and array_length(global._generation_rooms) != 1{
+						array_delete(global._generation_rooms,z,1)
+					}	
+					
 					room_.tag = tags_avaliable_index[z]
 					room_.scalex = tile_size_x_gen
 					room_.scaley = tile_size_y_gen
