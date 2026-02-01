@@ -1,7 +1,65 @@
+if round(execute) = 0 and doors = 0{
 
+	var inst = global._door_object
+	
+		for(var o = 0; o <ds_list_size(connections);o++){
+		
+				var ang = point_direction(x,y,connections[|o].x,connections[|o].y)
+				
+				var size = (scalex/2)-(global._generation_cell_x/2)
+				
+				var stepsize = 1
+				
+				if scaley > scalex{
+					size = scaley
+				}
+				
+				var place_ = global._gen_objects
+				
+				for(var i = 0; i < size;i++){
+					
+					
+					//if collision_point(x+lengthdir_x(stepsize*i,ang),y+lengthdir_y(stepsize*i,ang),place_,1,0){
+					if i = size-1{
+						instance_create_depth(x+lengthdir_x(stepsize*i,ang),y+lengthdir_y(stepsize*i,ang),depth-10,global._door_object)
+						
+						break
+					}
+					//}
+				}
+		}
+		for(var o = 0; o <ds_list_size(connected_to_me);o++){
+		
+				var ang = point_direction(x,y,connected_to_me[|o].x,connected_to_me[|o].y)
+				
+				var size = (scalex/2)-(global._generation_cell_x/2)
+				
+				var stepsize = 1
+				
+				if scaley > scalex{
+					size = scaley
+				}
+				
+				var place_ = global._gen_objects
+				
+				for(var i = 0; i < size;i++){
+					
+					
+					//if collision_point(x+lengthdir_x(stepsize*i,ang),y+lengthdir_y(stepsize*i,ang),place_,1,0){
+					if i = size-1{
+						instance_create_depth(x+lengthdir_x(stepsize*i,ang),y+lengthdir_y(stepsize*i,ang),depth-10,global._door_object)
+						
+						break
+					}
+					//}
+				}
+		}
+
+	doors = 1
+}
 
 if round(execute) != 0{
-	execute = lerp(execute,0,0.04)
+	execute = lerp(execute,0,0.1)
 	
 	//stop path
 	var ang = 0

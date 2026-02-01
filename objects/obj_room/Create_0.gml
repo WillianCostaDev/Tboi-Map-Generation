@@ -24,6 +24,8 @@ connected_to_me = ds_list_create()
 
 execute = 1
 
+doors = 0
+
 image_alpha = 0.2
 
 //show_debug_overlay(1,0,1,1,1)

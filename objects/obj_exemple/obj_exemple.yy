@@ -10,8 +10,8 @@
   "name":"obj_exemple",
   "overriddenProperties":[],
   "parent":{
-    "name":"Procedural Generation",
-    "path":"folders/Procedural Generation.yy",
+    "name":"Exemple Game",
+    "path":"folders/Exemple Game.yy",
   },
   "parentObjectId":null,
   "persistent":false,
