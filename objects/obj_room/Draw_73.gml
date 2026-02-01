@@ -21,7 +21,7 @@ if round(execute) = 0 and doors = 0{
 					
 					//if collision_point(x+lengthdir_x(stepsize*i,ang),y+lengthdir_y(stepsize*i,ang),place_,1,0){
 					if i = size-1{
-						instance_create_depth(x+lengthdir_x(stepsize*i,ang),y+lengthdir_y(stepsize*i,ang),depth-10,global._door_object)
+						instance_create_depth(x+lengthdir_x(stepsize*i,ang)-lengthdir_x(global._door_offset,ang),y+lengthdir_y(stepsize*i,ang)-lengthdir_y(global._door_offset,ang),depth-10,global._door_object)
 						
 						break
 					}
@@ -47,7 +47,7 @@ if round(execute) = 0 and doors = 0{
 					
 					//if collision_point(x+lengthdir_x(stepsize*i,ang),y+lengthdir_y(stepsize*i,ang),place_,1,0){
 					if i = size-1{
-						instance_create_depth(x+lengthdir_x(stepsize*i,ang),y+lengthdir_y(stepsize*i,ang),depth-10,global._door_object)
+						instance_create_depth(x+lengthdir_x(stepsize*i,ang)-lengthdir_x(global._door_offset,ang),y+lengthdir_y(stepsize*i,ang)-lengthdir_y(global._door_offset,ang),depth-10,global._door_object)
 						
 						break
 					}

@@ -13,7 +13,7 @@ var tile_size = 16
 
 //var rooms = [Room_base_1,Room_base_2,Room_base_3,Room_base_4,Room_base_5,Room_base_6,Room_base_7,Room_base_8]
 
-Init_WolrdGen(tile_size,tile_size,Room_base,Room_base,obj_door,4,tile_size*2,tile_size*2)
+Init_WolrdGen(tile_size,tile_size,Room_base,Room_base,obj_door,1,4,tile_size*2,tile_size*2)
 
 Add_Object_To_Gen(obj_wall_in,1,0)
 

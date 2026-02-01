@@ -2,13 +2,15 @@
 #macro in_path ("in_path")
 #macro last ("last")
 
-function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,Room_Init_Reference,Room_Reference,Door_Object,Default_Number_of_Connections = 4,Block_path_offsetx = 16,Block_path_offsety = 16){	
+function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,Room_Init_Reference,Room_Reference,Door_Object,Door_OffSet,Default_Number_of_Connections = 4,Block_path_offsetx = 16,Block_path_offsety = 16){	
 	global._generation_cell_x = Cell_x_size
 	global._generation_cell_y = Cell_y_size
 	
 	global._generation_rooms = []
 	global._default_room = Room_Reference
 	global._Init_room = Room_Init_Reference
+	
+	global._door_offset = Door_OffSet
 
 	global._default_rooms_array = []
 	
