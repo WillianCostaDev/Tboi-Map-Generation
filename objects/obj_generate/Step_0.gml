@@ -58,6 +58,19 @@ if execute = 1{
 			//Type of Room:
 		
 			for(var z = 0; z < array_length(rooms_avaliable); z++){
+				var tile_size_x_gen = global._Room_Width_list[clamp(z,0,array_length(global._Room_Width_list)-1)] *global._generation_cell_x
+				var tile_size_y_gen = global._Room_Height_list[clamp(z,0,array_length(global._Room_Height_list)-1)] *global._generation_cell_y
+				
+				var distx_gen = global._Room_Width_list[clamp(z,0,array_length(global._Room_Width_list)-1)] *global._generation_cell_x
+				var disty_gen = global._Room_Height_list[clamp(z,0,array_length(global._Room_Height_list)-1)] *global._generation_cell_y
+				
+				var ref_room =  global._generation_rooms[clamp(z,0,array_length(global._generation_rooms)-1)]
+				
+				var offx = 0
+				var offy = 0
+				
+				var room_Set = global._generation_rooms[clamp(z,0,array_length(global._generation_rooms)-1)]
+				
 				//perpendicular rooms
 				var perpendicular_case = rules_per_tag[z] = "perpendicular" and irandom_range(0,100) > 100-chance_spawn[z] and i != actual_room_amount-1
 			
@@ -70,21 +83,21 @@ if execute = 1{
 				
 					var ang = choose(90,-90)
 				
-					if(collision_circle(setx+lengthdir_x(distx,direc+ang),sety+lengthdir_y(disty,direc+ang),radius_set/div_check,obj_room,1,0)){
+					if(collision_circle(setx+lengthdir_x(distx_gen,direc+ang),sety+lengthdir_y(disty_gen,direc+ang),radius_set/div_check,obj_room,1,0)){
 						ang += 180
 					
-						if(collision_circle(setx+lengthdir_x(distx,direc+ang),sety+lengthdir_y(disty,direc+ang),radius_set/div_check,obj_room,1,0)) and required_perpendicular{
+						if(collision_circle(setx+lengthdir_x(distx_gen,direc+ang),sety+lengthdir_y(disty_gen,direc+ang),radius_set/div_check,obj_room,1,0)) and required_perpendicular{
 							restart()
 						}
 					}
 				
 					//generate other rooms
-					var room_p = instance_create_depth(setx+lengthdir_x(distx,direc+ang),sety+lengthdir_y(disty,direc+ang),0,obj_room)
+					var room_p = instance_create_depth(setx+offx+lengthdir_x(distx_gen,direc+ang),sety+offy+lengthdir_y(disty_gen,direc+ang),0,obj_room)
 					room_p.room_ref = global._generation_rooms[clamp(z,0,array_length(global._generation_rooms)-1)]
-					room_p.scalex = tile_size_x
-					room_p.scaley = tile_size_y
-					room_p.distx = distx
-					room_p.disty = disty
+					room_p.scalex = tile_size_x_gen
+					room_p.scaley = tile_size_y_gen
+					room_p.distx = distx_gen
+					room_p.disty = disty_gen
 					room_p.tag = tags_avaliable_index[z]
 					room_p.number = -i-1
 					room_p.max_number_of_connections = numb_connections[z]
@@ -103,12 +116,14 @@ if execute = 1{
 				var last_group = last_case or required_last
 			
 				if last_group and room_.tag = default_tag{
+					room_.x += offx
+					room_.y += offy
 					room_.room_ref = global._generation_rooms[clamp(z,0,array_length(global._generation_rooms)-1)]
 					room_.tag = tags_avaliable_index[z]
-					room_.scalex = tile_size_x
-					room_.scaley = tile_size_y
-					room_.distx = distx
-					room_.disty = disty
+					room_.scalex = tile_size_x_gen
+					room_.scaley = tile_size_y_gen
+					room_.distx = distx_gen
+					room_.disty = disty_gen
 					room_.number = -i-1
 					room_.max_number_of_connections = numb_connections[z]
 					room_.angle = angle
@@ -129,12 +144,14 @@ if execute = 1{
 				var required_in_path = rules_per_tag[z] = "in_path" and i = actual_room_amount-1 and required_spawn[z] = 1
 			
 				if in_path_case or required_in_path{
+					room_.x += offx
+					room_.y += offy
 					room_.room_ref = global._generation_rooms[clamp(z,0,array_length(global._generation_rooms)-1)]
 					room_.tag = tags_avaliable_index[z]
-					room_.scalex = tile_size_x
-					room_.scaley = tile_size_y
-					room_.distx = distx
-					room_.disty = disty
+					room_.scalex = tile_size_x_gen
+					room_.scaley = tile_size_y_gen
+					room_.distx = distx_gen
+					room_.disty = disty_gen
 					room_.number = i+1
 					room_.max_number_of_connections = numb_connections[z]
 					room_.angle = angle

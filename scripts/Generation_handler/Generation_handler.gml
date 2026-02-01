@@ -13,6 +13,10 @@ function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,Room_Init_Reference,Roo
 	global._Room_Width = (RoomLoader.DataGetWidth(Room_Reference))/Cell_x_size //Room_size_x
 	global._Room_Height =(RoomLoader.DataGetHeight(Room_Reference))/Cell_y_size //Room_size_y
 	
+	//Support for different rooms
+	global._Room_Width_list = []
+	global._Room_Height_list = []
+	
 	global._Generation_angle = 0
 	
 	global._block_path_offsetx = Block_path_offsetx
@@ -65,10 +69,14 @@ function Add_Room_To_Gen(Room_name = "new",Room_Ref,Spawn_Rule = "perpendicular"
 	array_push(global._numb_connections_ ,max_number_of_connections)
 	array_push(global._required_spawn_ ,Is_required_to_Spawn)
 	array_push(global._debug_generation_color ,Debug_color)
+	
+	//size list
+	array_push(global._Room_Width_list,(RoomLoader.DataGetWidth(Room_Ref))/global._generation_cell_x)
+	array_push(global._Room_Height_list,(RoomLoader.DataGetHeight(Room_Ref))/global._generation_cell_y)
 }
 
 
-function Start_WolrdGen(Xstart = 0,Ystart = 0,Rooms_Amount = 8,Horizontal_Distance_between_rooms = 8,Vertical_Distance_between_rooms = 8,Curve_amount = 90,Forks = 2,Reset_if_Fail = 1){
+function Start_WolrdGen(Xstart = 0,Ystart = 0,Rooms_Amount = 8,Curve_amount = 90,Forks = 2,Reset_if_Fail = 1){
 	Forks = clamp(Forks,0,4)
 	
 	var Wolrd_Gen_ref = instance_create_depth(Xstart,Ystart,0,obj_generate_ref)
@@ -76,8 +84,8 @@ function Start_WolrdGen(Xstart = 0,Ystart = 0,Rooms_Amount = 8,Horizontal_Distan
 	Wolrd_Gen_ref.rooms_amount = Rooms_Amount
 	Wolrd_Gen_ref.tile_size_x = global._Room_Width*global._generation_cell_x
 	Wolrd_Gen_ref.tile_size_y = global._Room_Height*global._generation_cell_y
-	Wolrd_Gen_ref.distx = Horizontal_Distance_between_rooms*global._generation_cell_x
-	Wolrd_Gen_ref.disty = Vertical_Distance_between_rooms*global._generation_cell_y
+	Wolrd_Gen_ref.distx = global._Room_Width*global._generation_cell_x
+	Wolrd_Gen_ref.disty = global._Room_Height*global._generation_cell_y
 	Wolrd_Gen_ref.angle = 90
 	Wolrd_Gen_ref.forks = Forks
 	Wolrd_Gen_ref.reset_if_fail = Reset_if_Fail

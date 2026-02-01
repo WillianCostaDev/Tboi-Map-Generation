@@ -104,7 +104,7 @@ if global.debug_generation = 1{
 	draw_set_colour(c_aqua)
 	
 	if tag != "normal"{
-		draw_set_colour(c_red)
+	//	draw_set_colour(c_red)
 	}
 	
 	for(var i = 0; i <ds_list_size(connections);i++){

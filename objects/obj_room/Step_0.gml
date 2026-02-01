@@ -16,7 +16,12 @@ if execute = 1{
 	//Place Room
 	
 	RoomLoader.DataInit(room_ref)
-	RoomLoader.Load(room_ref,x-((global._Room_Width*global._generation_cell_x)/2),y-((global._Room_Height*global._generation_cell_y)/2))
+	//var size_getx = RoomLoader.DataGetWidth(room_ref)/global._generation_cell_x
+	//var size_gety = RoomLoader.DataGetHeight(room_ref)/global._generation_cell_y
+	var size_getx = global._Room_Width
+	var size_gety = global._Room_Height 
+	
+	RoomLoader.Load(room_ref,x-((size_getx*global._generation_cell_x)/2),y-((size_gety*global._generation_cell_y)/2))
 	
 	////////
 	
