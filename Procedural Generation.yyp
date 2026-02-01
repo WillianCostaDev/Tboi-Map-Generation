@@ -35,7 +35,7 @@
   "name":"Procedural Generation",
   "resources":[
     {"id":{"name":"Generation_Font","path":"fonts/Generation_Font/Generation_Font.yy",},},
-    {"id":{"name":"01. GMRoomLoader Info","path":"notes/01. GMRoomLoader Info/01. GMRoomLoader Info.yy",},},
+    {"id":{"name":"Credits","path":"notes/Credits/Credits.yy",},},
     {"id":{"name":"obj_chest","path":"objects/obj_chest/obj_chest.yy",},},
     {"id":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},},
     {"id":{"name":"obj_enemie","path":"objects/obj_enemie/obj_enemie.yy",},},
