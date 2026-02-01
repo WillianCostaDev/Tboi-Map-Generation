@@ -59,9 +59,8 @@ if round(execute) = 0 and doors = 0{
 }
 
 if round(execute) != 0{
-	execute = 0
+	execute = lerp(execute,0,0.2)
 	
-	repeat(global._Room_Width){
 	
 	//stop path
 	var ang = 0
@@ -143,7 +142,7 @@ if round(execute) != 0{
 			ang += global._Generation_angle
 		}
 		
-	}
+	
 		
 		
 		
