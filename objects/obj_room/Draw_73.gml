@@ -2,6 +2,10 @@ if round(execute) = 0 and doors = 0{
 
 	var inst = global._door_object
 	
+		if !ds_exists(connections,ds_type_list){
+			return
+		}
+	
 		for(var o = 0; o <ds_list_size(connections);o++){
 		
 				var ang = point_direction(x,y,connections[|o].x,connections[|o].y)

@@ -18,7 +18,6 @@
     {"name":"inst_214EADCA","path":"rooms/Room_base/Room_base.yy",},
     {"name":"inst_5DC14647","path":"rooms/Room_base/Room_base.yy",},
     {"name":"inst_1C37170C","path":"rooms/Room_base/Room_base.yy",},
-    {"name":"inst_2A9CB830","path":"rooms/Room_base/Room_base.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -35,7 +34,6 @@
         {"$GMRInstance":"v4","%Name":"inst_214EADCA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_214EADCA","objectId":{"name":"obj_wall_in","path":"objects/obj_wall_in/obj_wall_in.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":7.0,"scaleY":2.0,"x":48.0,"y":16.0,},
         {"$GMRInstance":"v4","%Name":"inst_5DC14647","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5DC14647","objectId":{"name":"obj_wall_in","path":"objects/obj_wall_in/obj_wall_in.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":2.0,"scaleY":7.0,"x":16.0,"y":48.0,},
         {"$GMRInstance":"v4","%Name":"inst_1C37170C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1C37170C","objectId":{"name":"obj_wall_in","path":"objects/obj_wall_in/obj_wall_in.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":2.0,"scaleY":7.0,"x":160.0,"y":48.0,},
-        {"$GMRInstance":"v4","%Name":"inst_2A9CB830","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2A9CB830","objectId":{"name":"obj_enemie","path":"objects/obj_enemie/obj_enemie.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":96.0,"y":96.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
   ],
   "name":"Room_base",

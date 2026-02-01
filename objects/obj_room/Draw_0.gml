@@ -1,4 +1,4 @@
-draw_sprite_ext(sprite_index,image_index,x+offx,y+offy,scalex/2,scaley/2,image_angle,image_blend,image_alpha)
+draw_sprite_ext(sprite_index,image_index,x+offx,y+offy,scalex/2,scaley/2,image_angle,#070F28,image_alpha)
 
 image_blend = debug_color
 

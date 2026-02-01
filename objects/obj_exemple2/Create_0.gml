@@ -21,4 +21,4 @@ Add_Object_To_Gen(obj_pit,1,0)
 Add_Room_To_Gen("shop",Room_base,perpendicular,40,1,1,c_yellow)
 Add_Room_To_Gen("boss",Room_base_Init,last,100,1,1,c_red)
 
-Start_WolrdGen(room_width/2,room_height/2,6,90,3)
+Start_WolrdGen(room_width/2,room_height/2,12,90,4)
