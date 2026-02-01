@@ -2,9 +2,9 @@
 #macro in_path ("in_path")
 #macro last ("last")
 
-function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,Room_Init_Reference,Room_Reference,Door_Object,Door_OffSet,Default_Number_of_Connections = 4,Can_Repeat_Rooms = false,Block_path_offsetx = 16,Block_path_offsety = 16){	
+function Init_WolrdGen(Cell_x_size = 16,Room_Init_Reference,Room_Reference,Door_Object,Door_OffSet,Default_Number_of_Connections = 4,Can_Repeat_Rooms = false,Block_path_offsetx = 16,Block_path_offsety = 16){	
 	global._generation_cell_x = Cell_x_size
-	global._generation_cell_y = Cell_y_size
+	global._generation_cell_y = Cell_x_size
 	
 	global._Repeat_Rooms = Can_Repeat_Rooms
 	
@@ -24,10 +24,10 @@ function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,Room_Init_Reference,Roo
 	
 	if array_length(global._default_rooms_array) = 0{
 		global._Room_Width = (RoomLoader.DataGetWidth(Room_Reference))/Cell_x_size //Room_size_x
-		global._Room_Height =(RoomLoader.DataGetHeight(Room_Reference))/Cell_y_size //Room_size_y
+		global._Room_Height =(RoomLoader.DataGetHeight(Room_Reference))/Cell_x_size //Room_size_y
 	}else{
 		global._Room_Width = (RoomLoader.DataGetWidth(global._default_rooms_array[0]))/Cell_x_size //Room_size_x
-		global._Room_Height =(RoomLoader.DataGetHeight(global._default_rooms_array[0]))/Cell_y_size //Room_size_y
+		global._Room_Height =(RoomLoader.DataGetHeight(global._default_rooms_array[0]))/Cell_x_size //Room_size_y
 	}
 	
 	

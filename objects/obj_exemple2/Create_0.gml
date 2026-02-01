@@ -13,9 +13,10 @@ var tile_size = 16
 
 var rooms = [Room_base,Room_base,Room_base,Room_base]
 
-Init_WolrdGen(tile_size,tile_size,Room_base,rooms,obj_door,1,4,true,tile_size*2,tile_size*2)
+Init_WolrdGen(tile_size,Room_base,rooms,obj_door,1,4,true,tile_size*2,tile_size*2)
 
 Add_Object_To_Gen(obj_wall_in,1,0)
+Add_Object_To_Gen(obj_pit,1,0)
 
 Add_Room_To_Gen("shop",Room_base,perpendicular,40,1,1,c_yellow)
 Add_Room_To_Gen("boss",Room_base_Init,last,100,1,1,c_red)
