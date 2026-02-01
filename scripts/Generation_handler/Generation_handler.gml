@@ -9,9 +9,24 @@ function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,Room_Init_Reference,Roo
 	global._generation_rooms = []
 	global._default_room = Room_Reference
 	global._Init_room = Room_Init_Reference
+
+	global._default_rooms_array = []
 	
-	global._Room_Width = (RoomLoader.DataGetWidth(Room_Reference))/Cell_x_size //Room_size_x
-	global._Room_Height =(RoomLoader.DataGetHeight(Room_Reference))/Cell_y_size //Room_size_y
+	
+	if is_array(Room_Reference){
+		global._default_rooms_array = Room_Reference
+	}
+	
+	
+	if array_length(global._default_rooms_array) = 0{
+		global._Room_Width = (RoomLoader.DataGetWidth(Room_Reference))/Cell_x_size //Room_size_x
+		global._Room_Height =(RoomLoader.DataGetHeight(Room_Reference))/Cell_y_size //Room_size_y
+	}else{
+		global._Room_Width = (RoomLoader.DataGetWidth(global._default_rooms_array[0]))/Cell_x_size //Room_size_x
+		global._Room_Height =(RoomLoader.DataGetHeight(global._default_rooms_array[0]))/Cell_y_size //Room_size_y
+	}
+	
+	
 	
 	//Support for different rooms
 	global._Room_Width_list = []
@@ -52,14 +67,14 @@ function Init_WolrdGen(Cell_x_size = 16,Cell_y_size = 16,Room_Init_Reference,Roo
 }
 
 
-//function Add_Object_To_Gen(Color,Object,Offx=0,Offy=0,Block_doors = 0,Stop_Gen = 0){
-//	array_push(global.gen_colors,Color)
-//	array_push(global.gen_objects,Object)
-//	array_push(global.xoffset,Offx)
-//	array_push(global.yoffset,Offy)
-//	array_push(global.stop_path,Block_doors)
-//	array_push(global.stop_gen,Stop_Gen)
-//}
+function Add_Object_To_Gen(Object,Block_doors = 0,Stop_Gen = 0){
+	//array_push(global.gen_colors,Color)
+	array_push(global._gen_objects,Object)
+	//array_push(global.xoffset,Offx)
+	//array_push(global.yoffset,Offy)
+	array_push(global._stop_path,Block_doors)
+	array_push(global._stop_gen,Stop_Gen)
+}
 
 function Add_Room_To_Gen(Room_name = "new",Room_Ref,Spawn_Rule = "perpendicular",Spawn_chance = 100,max_number_of_connections = 4,Is_required_to_Spawn = 1,Debug_color = make_colour_rgb(random(255),random(255),random(255))){
 	array_push(global._tags_avaliable_index_ ,Room_name)
@@ -86,7 +101,7 @@ function Start_WolrdGen(Xstart = 0,Ystart = 0,Rooms_Amount = 8,Curve_amount = 90
 	Wolrd_Gen_ref.tile_size_y = global._Room_Height*global._generation_cell_y
 	Wolrd_Gen_ref.distx = global._Room_Width*global._generation_cell_x
 	Wolrd_Gen_ref.disty = global._Room_Height*global._generation_cell_y
-	Wolrd_Gen_ref.angle = 90
+	Wolrd_Gen_ref.angle = Curve_amount
 	Wolrd_Gen_ref.forks = Forks
 	Wolrd_Gen_ref.reset_if_fail = Reset_if_Fail
 	

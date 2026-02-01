@@ -44,7 +44,11 @@ if execute = 1{
 			var room_ = instance_create_depth(setx,sety,0,obj_room)
 			ds_list_add(rooms,room_)
 			
-			room_.room_ref = global._default_room
+			if array_length(global._default_rooms_array) = 0{
+				room_.room_ref = global._default_room
+			}else{
+				room_.room_ref = global._default_rooms_array[irandom_range(0,array_length(global._default_rooms_array)-1)]
+			}
 			room_.scalex = tile_size_x
 			room_.scaley = tile_size_y
 			room_.distx = distx
