@@ -5,6 +5,8 @@ if round(execute) = 0 and doors = 0{
 		if !ds_exists(connections,ds_type_list){
 			return
 		}
+		
+		var offset_place = 2
 	
 		for(var o = 0; o <ds_list_size(connections);o++){
 		
@@ -12,24 +14,24 @@ if round(execute) = 0 and doors = 0{
 				
 				var size = (scalex/2)-(global._generation_cell_x/2)
 				
-				var stepsize = 1
+				var stepsize = global._generation_cell_x
 				
 				if scaley > scalex{
 					size = scaley
 				}
 				
-				var place_ = global._gen_objects
+				var place_ = global._doors_in
 				
-				for(var i = 0; i < size;i++){
-					
-					
-					//if collision_point(x+lengthdir_x(stepsize*i,ang),y+lengthdir_y(stepsize*i,ang),place_,1,0){
-					if i = size-1{
-						instance_create_depth(x+lengthdir_x(stepsize*i,ang)-lengthdir_x(global._door_offset,ang),y+lengthdir_y(stepsize*i,ang)-lengthdir_y(global._door_offset,ang),depth-10,global._door_object)
+				for(var i = 0; i < size;i++){							
+					if collision_point(x+lengthdir_x((stepsize*i)-offset_place,ang),y+lengthdir_y((stepsize*i)-offset_place,ang),place_,1,0){	
+						//draw_circle(x+lengthdir_x(stepsize*i,ang),y+lengthdir_y(stepsize*i,ang),1,0)
 						
-						break
+						//if i = size-1{
+							instance_create_depth(x+lengthdir_x(stepsize*i,ang)-lengthdir_x(global._door_offset,ang),y+lengthdir_y(stepsize*i,ang)-lengthdir_y(global._door_offset,ang),depth-10,global._door_object)
+						
+							break
+						//}
 					}
-					//}
 				}
 		}
 		for(var o = 0; o <ds_list_size(connected_to_me);o++){
@@ -44,22 +46,22 @@ if round(execute) = 0 and doors = 0{
 					size = scaley
 				}
 				
-				var place_ = global._gen_objects
+				var place_ = global._doors_in
 				
-				for(var i = 0; i < size;i++){
-					
-					
-					//if collision_point(x+lengthdir_x(stepsize*i,ang),y+lengthdir_y(stepsize*i,ang),place_,1,0){
-					if i = size-1{
-						instance_create_depth(x+lengthdir_x(stepsize*i,ang)-lengthdir_x(global._door_offset,ang),y+lengthdir_y(stepsize*i,ang)-lengthdir_y(global._door_offset,ang),depth-10,global._door_object)
+				for(var i = 0; i < size;i++){							
+					if collision_point(x+lengthdir_x((stepsize*i)-offset_place,ang),y+lengthdir_y((stepsize*i)-offset_place,ang),place_,1,0){	
+						//draw_circle(x+lengthdir_x(stepsize*i,ang),y+lengthdir_y(stepsize*i,ang),1,0)
 						
-						break
+						//if i = size-1{
+							instance_create_depth(x+lengthdir_x(stepsize*i,ang)-lengthdir_x(global._door_offset,ang),y+lengthdir_y(stepsize*i,ang)-lengthdir_y(global._door_offset,ang),depth-10,global._door_object)
+						
+							break
+						//}
 					}
-					//}
 				}
 		}
 
-	doors = 1
+	//doors = 1
 }
 
 if round(execute) != 0{

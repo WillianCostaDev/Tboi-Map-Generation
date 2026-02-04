@@ -52,6 +52,7 @@ function Init_WolrdGen(Cell_x_size = 16,Room_Init_Reference,Room_Reference,Door_
 	
 	global._stop_path = []
 	global._stop_gen = []
+	global._doors_in = []
 
 	//Type of rooms
 	global._default_tag_  = "normal"
@@ -71,13 +72,17 @@ function Init_WolrdGen(Cell_x_size = 16,Room_Init_Reference,Room_Reference,Door_
 }
 
 
-function Add_Object_To_Gen(Object,Block_doors = 0,Stop_Gen = 0){
+function Add_Object_To_Gen(Object,Block_doors = 0,Stop_Gen = 0,Can_doors_be_in_this_obj = 0){
 	//array_push(global.gen_colors,Color)
 	array_push(global._gen_objects,Object)
 	//array_push(global.xoffset,Offx)
 	//array_push(global.yoffset,Offy)
 	array_push(global._stop_path,Block_doors)
 	array_push(global._stop_gen,Stop_Gen)
+	
+	if Can_doors_be_in_this_obj != 0{
+		array_push(global._doors_in,Object)
+	}
 }
 
 function Add_Room_To_Gen(Room_name = "new",Room_Ref,Spawn_Rule = "perpendicular",Spawn_chance = 100,max_number_of_connections = 4,Is_required_to_Spawn = 1,Debug_color = make_colour_rgb(random(255),random(255),random(255))){
