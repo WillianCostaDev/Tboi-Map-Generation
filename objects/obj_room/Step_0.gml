@@ -31,10 +31,6 @@ if execute = 1{
 		instance_destroy()
 	}
 	
-	if place_meeting(x,y,obj_room) and global._Reset = 1{
-		master.restart()
-	}
-	
 	var numb_connect = max_number_of_connections > 0
 
 	var inst = obj_room
@@ -68,6 +64,7 @@ if execute = 1{
 	
 	execute = -1
 }
+
 
 
 //if execute = -1{

@@ -1,3 +1,16 @@
+var placen = collision_rectangle(x-(scalex/2),y-(scaley/2),x+(scalex/2),y+(scaley/2),obj_room,1,1)
+
+if 	placen and global._Reset = 1 and doors = 1{
+	master.reset_if_fail = 1
+	master.restart()
+}
+
+if doors = 1{
+	image_xscale = (scalex/2)*0.9
+	image_yscale = (scaley/2)*0.9
+}
+
+
 if round(execute) = 0 and doors = 0{
 
 	var inst = global._door_object
@@ -69,7 +82,7 @@ if round(execute) = 0 and doors = 0{
 				}
 		}
 
-	//doors = 1
+	doors = 1
 }
 
 if round(execute) != 0{
@@ -168,34 +181,34 @@ if round(execute) != 0{
 
 
 //////////////////////////////////
-if global.debug_generation = 1{
-	//if sprite_ref != noone{
-	////	draw_sprite_ext(sprite_ref,0,x-(scalex/2),y-(scaley/2),(scalex)/global.generation_cell_x,(scaley)/global.generation_cell_y,0,c_white,1)
-	//}
+//if global.debug_generation = 1{
+//	//if sprite_ref != noone{
+//	////	draw_sprite_ext(sprite_ref,0,x-(scalex/2),y-(scaley/2),(scalex)/global.generation_cell_x,(scaley)/global.generation_cell_y,0,c_white,1)
+//	//}
 	
-	draw_set_alpha(0.8)
-	draw_set_colour(c_aqua)
+//	draw_set_alpha(0.8)
+//	draw_set_colour(c_aqua)
 	
-	if tag != "normal"{
-	//	draw_set_colour(c_red)
-	}
+//	if tag != "normal"{
+//	//	draw_set_colour(c_red)
+//	}
 	
-	for(var i = 0; i <ds_list_size(connections);i++){
+//	for(var i = 0; i <ds_list_size(connections);i++){
 		
-		if instance_exists(connections[|i]){
-			var lengx = lengthdir_x(point_distance(x,y,connections[|i].x,connections[|i].y),point_direction(x,y,connections[|i].x,connections[|i].y))
-			var lengy = lengthdir_y(point_distance(x,y,connections[|i].x,connections[|i].y),point_direction(x,y,connections[|i].x,connections[|i].y))
+//		if instance_exists(connections[|i]){
+//			var lengx = lengthdir_x(point_distance(x,y,connections[|i].x,connections[|i].y),point_direction(x,y,connections[|i].x,connections[|i].y))
+//			var lengy = lengthdir_y(point_distance(x,y,connections[|i].x,connections[|i].y),point_direction(x,y,connections[|i].x,connections[|i].y))
 				
-			draw_set_alpha(1)
-			draw_line_width(x,y,x+lengx,y+lengy,4)
-		}
-	}
-	//for(var i = 0; i <ds_list_size(connections);i++){
-	//	var lengx = lengthdir_x(point_distance(x,y,connections[|i].x,connections[|i].y)/3,point_direction(x,y,connections[|i].x,connections[|i].y))
-	//	var lengy = lengthdir_y(point_distance(x,y,connections[|i].x,connections[|i].y)/3,point_direction(x,y,connections[|i].x,connections[|i].y))
+//			draw_set_alpha(1)
+//			draw_line_width(x,y,x+lengx,y+lengy,4)
+//		}
+//	}
+//	//for(var i = 0; i <ds_list_size(connections);i++){
+//	//	var lengx = lengthdir_x(point_distance(x,y,connections[|i].x,connections[|i].y)/3,point_direction(x,y,connections[|i].x,connections[|i].y))
+//	//	var lengy = lengthdir_y(point_distance(x,y,connections[|i].x,connections[|i].y)/3,point_direction(x,y,connections[|i].x,connections[|i].y))
 		
-	//	draw_line(x,y,x+lengx,y+lengy)
-	//}
-	draw_set_colour(c_white)
-	draw_set_alpha(1)
-}
+//	//	draw_line(x,y,x+lengx,y+lengy)
+//	//}
+//	draw_set_colour(c_white)
+//	draw_set_alpha(1)
+//}
