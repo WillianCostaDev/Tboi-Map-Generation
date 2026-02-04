@@ -6,7 +6,7 @@ if round(execute) = 0 and doors = 0{
 			return
 		}
 		
-		var offset_place = 2
+		var offset_place = 4
 	
 		for(var o = 0; o <ds_list_size(connections);o++){
 		
