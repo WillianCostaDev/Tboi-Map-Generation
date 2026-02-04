@@ -105,11 +105,17 @@ function Start_WolrdGen(Xstart = 0,Ystart = 0,Rooms_Amount = 8,Curve_amount = 90
 	
 	var Wolrd_Gen_ref = instance_create_depth(Xstart,Ystart,0,obj_generate_ref)
 	
+	var Dist_mul = 1
+	
+	if Curve_amount != 90{
+		Dist_mul = 1.4
+	}
+	
 	Wolrd_Gen_ref.rooms_amount = Rooms_Amount
 	Wolrd_Gen_ref.tile_size_x = global._Room_Width*global._generation_cell_x
 	Wolrd_Gen_ref.tile_size_y = global._Room_Height*global._generation_cell_y
-	Wolrd_Gen_ref.distx = global._Room_Width*global._generation_cell_x
-	Wolrd_Gen_ref.disty = global._Room_Height*global._generation_cell_y
+	Wolrd_Gen_ref.distx = (global._Room_Width*global._generation_cell_x)*Dist_mul
+	Wolrd_Gen_ref.disty = (global._Room_Height*global._generation_cell_y)*Dist_mul
 	Wolrd_Gen_ref.angle = Curve_amount
 	Wolrd_Gen_ref.forks = Forks
 	Wolrd_Gen_ref.reset_if_fail = Reset_if_Fail

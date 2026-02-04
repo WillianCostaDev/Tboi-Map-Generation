@@ -6,13 +6,21 @@ if round(execute) = 0 and doors = 0{
 			return
 		}
 		
+		var place_mul = 1
+		
 		var offset_place = 4
+		
+		if global._Generation_angle != 90{
+			offset_place = -2
+			
+			place_mul = 1.4
+		}
 	
 		for(var o = 0; o <ds_list_size(connections);o++){
 		
 				var ang = point_direction(x,y,connections[|o].x,connections[|o].y)
 				
-				var size = (scalex/2)-(global._generation_cell_x/2)
+				var size = ((scalex/2)-(global._generation_cell_x/2))*place_mul
 				
 				var stepsize = global._generation_cell_x
 				
@@ -38,7 +46,7 @@ if round(execute) = 0 and doors = 0{
 		
 				var ang = point_direction(x,y,connected_to_me[|o].x,connected_to_me[|o].y)
 				
-				var size = (scalex/2)-(global._generation_cell_x/2)
+				var size = ((scalex/2)-(global._generation_cell_x/2))*place_mul
 				
 				var stepsize = 1
 				
