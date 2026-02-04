@@ -23,12 +23,12 @@ if execute = 1{
 			}else{
 				direc += irandom_range(-1,1)*angle
 			}
-		
-			if(collision_circle(setx+lengthdir_x(distx,direc),sety+lengthdir_y(disty,direc),radius_set/div_check,obj_room,1,0)){
+			
+			if(Rec_get(setx+lengthdir_x(distx,direc),sety+lengthdir_y(disty,direc),obj_room)){
 				for(var l = 0; l < try_fix_amount; l++){
 					direc += irandom_range(-1,1)*angle
 					
-					if !(collision_circle(setx+lengthdir_x(distx,direc),sety+lengthdir_y(disty,direc),2,obj_room,1,0)){
+					if !(Rec_get(setx+lengthdir_x(distx,direc),sety+lengthdir_y(disty,direc),obj_room)){
 						break;
 					}else{
 						restart()
@@ -80,6 +80,12 @@ if execute = 1{
 				var offx = 0
 				var offy = 0
 				
+				var mul = 1
+				
+				if global._Generation_angle != 90{
+					mul = 1.4
+				}
+				
 				var room_Set = global._generation_rooms[clamp(z,0,array_length(global._generation_rooms)-1)]
 				
 				//perpendicular rooms
@@ -93,17 +99,17 @@ if execute = 1{
 					rules_per_tag[z] = "done"
 				
 					var ang = choose(90,-90)
-				
-					if(collision_circle(setx+lengthdir_x(distx_gen,direc+ang),sety+lengthdir_y(disty_gen,direc+ang),radius_set/div_check,obj_room,1,0)){
+					
+					if(Rec_get(setx+lengthdir_x(distx_gen,direc+ang),sety+lengthdir_y(disty_gen,direc+ang),obj_room)){
 						ang += 180
 					
-						if(collision_circle(setx+lengthdir_x(distx_gen,direc+ang),sety+lengthdir_y(disty_gen,direc+ang),radius_set/div_check,obj_room,1,0)) and required_perpendicular{
+						if(Rec_get(setx+lengthdir_x(distx_gen,direc+ang),sety+lengthdir_y(disty_gen,direc+ang),obj_room)) and required_perpendicular{
 							restart()
 						}
 					}
 				
 					//generate other rooms
-					var room_p = instance_create_depth(setx+offx+lengthdir_x(distx_gen,direc+ang),sety+offy+lengthdir_y(disty_gen,direc+ang),0,obj_room)
+					var room_p = instance_create_depth(setx+offx+lengthdir_x(distx_gen*mul,direc+ang),sety+offy+lengthdir_y(disty_gen*mul,direc+ang),0,obj_room)
 					room_p.room_ref = global._generation_rooms[clamp(z,0,array_length(global._generation_rooms)-1)]
 
 					if global._Repeat_Rooms != false and array_length(global._generation_rooms) != 1{

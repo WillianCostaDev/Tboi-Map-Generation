@@ -55,6 +55,27 @@ restart = function(){
 	}
 }
 
+Rec_get = function(xset,yset,obj){
+	var place = 
+	collision_rectangle(
+	xset-(tile_size_x/2),
+	yset-(tile_size_y/2),
+	xset+(tile_size_x/2),
+	yset+(tile_size_y/2),
+	obj,1,0
+	)
+	
+	draw_rectangle(
+	xset-(tile_size_x/2),
+	yset-(tile_size_y/2),
+	xset+(tile_size_x/2),
+	yset+(tile_size_y/2),
+	1
+	)
+	
+	return place;
+}
+
 //Type of rooms
 default_tag = global._default_tag_
 default_numb_connections = global._default_numb_connections_

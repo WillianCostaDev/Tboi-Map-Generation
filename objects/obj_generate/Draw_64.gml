@@ -1,0 +1,1 @@
+//Rec_get(mouse_x,mouse_y,obj_room)

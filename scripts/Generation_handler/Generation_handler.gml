@@ -16,6 +16,8 @@ function Init_WolrdGen(Cell_x_size = 16,Room_Init_Reference,Room_Reference,Door_
 
 	global._default_rooms_array = []
 	
+	global._Reset = 0
+	
 	
 	if is_array(Room_Reference){
 		global._default_rooms_array = Room_Reference
@@ -125,6 +127,7 @@ function Start_WolrdGen(Xstart = 0,Ystart = 0,Rooms_Amount = 8,Curve_amount = 90
 	Wolrd_Gen.Ref = Wolrd_Gen_ref
 	
 	global._Generation_angle = Curve_amount
+	global._Reset = Reset_if_Fail
 }
 
 function Place_object(sprite_ref,index,color,object){
