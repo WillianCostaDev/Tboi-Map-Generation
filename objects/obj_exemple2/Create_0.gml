@@ -5,7 +5,7 @@ window_set_fullscreen(1)
 
 randomise()
 
-global.debug_generation = -1
+global.debug_generation = 1
 
 //execute = 1
 
@@ -22,4 +22,4 @@ Add_Object_To_Gen(obj_pit,1,0,0)
 Add_Room_To_Gen("shop",Room_base,perpendicular,40,1,1,c_yellow)
 Add_Room_To_Gen("boss",Room_base,last,100,1,1,c_red)
 
-Start_WolrdGen(room_width/2,room_height/2,16,90,4,1)
+Start_WolrdGen(room_width/2,room_height/2,8,90,3,1)
