@@ -13,4 +13,5 @@
 
 //Start_WolrdGen(room_width/2,room_height/2,8,size,size,size,size,90,2,1)
 
-//global.debug_generation = -1
+//global.debug_generation = -Commit do laptop, trabalho limp
+
